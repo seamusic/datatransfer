@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A51C10EC-4EBB-4BD7-973E-C4F38353BF3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Daan.DataTransfer.Test.Domain</RootNamespace>
+    <AssemblyName>Daan.DataTransfer.Test.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dictantibiotic.cs" />
+    <Compile Include="Dictantibioticgroup.cs" />
+    <Compile Include="Dictantibioticrefrange.cs" />
+    <Compile Include="Dictcheckcustomer.cs" />
+    <Compile Include="Dictcontroltestrule.cs" />
+    <Compile Include="Dictcontroltests.cs" />
+    <Compile Include="DictcustOdd.cs" />
+    <Compile Include="Dictcustomer.cs" />
+    <Compile Include="Dictcustomerdiscount.cs" />
+    <Compile Include="Dictcustomerexcelmap.cs" />
+    <Compile Include="Dictcustomergroup.cs" />
+    <Compile Include="Dictcustomergroupprice.cs" />
+    <Compile Include="Dictcustomerpriceactive.cs" />
+    <Compile Include="Dictcustomertestdiscount.cs" />
+    <Compile Include="Dictcustomeruser.cs" />
+    <Compile Include="Dictdiagnosis.cs" />
+    <Compile Include="Dictdoctor.cs" />
+    <Compile Include="Dictdoctorex.cs" />
+    <Compile Include="Dictdrawertype.cs" />
+    <Compile Include="Dictfastcomment.cs" />
+    <Compile Include="Dictgroupsecurity.cs" />
+    <Compile Include="Dicthost.cs" />
+    <Compile Include="Dictinputchoice.cs" />
+    <Compile Include="Dictinputtemplate.cs" />
+    <Compile Include="Dictinputtemplateitem.cs" />
+    <Compile Include="Dictinstrument.cs" />
+    <Compile Include="Dictinstrumentcenter.cs" />
+    <Compile Include="Dictinstrumenttest.cs" />
+    <Compile Include="Dictlibrary.cs" />
+    <Compile Include="Dictlocation.cs" />
+    <Compile Include="Dictorganism.cs" />
+    <Compile Include="Dictorganismgroup.cs" />
+    <Compile Include="Dictpathologytype.cs" />
+    <Compile Include="Dictqccontrol.cs" />
+    <Compile Include="Dictqclot.cs" />
+    <Compile Include="Dictqclotcenter.cs" />
+    <Compile Include="Dictqclottest.cs" />
+    <Compile Include="Dictqcrule.cs" />
+    <Compile Include="Dictqctestrule.cs" />
+    <Compile Include="Dictreporttemplate.cs" />
+    <Compile Include="Dictresulttypedetail.cs" />
+    <Compile Include="Dictrouteassign.cs" />
+    <Compile Include="Dictruleformular.cs" />
+    <Compile Include="Dictsaleman.cs" />
+    <Compile Include="Dictsecurityresource.cs" />
+    <Compile Include="Dictstatcolumns.cs" />
+    <Compile Include="Dictstatconditions.cs" />
+    <Compile Include="Dictstathead.cs" />
+    <Compile Include="Dicttableversion.cs" />
+    <Compile Include="Dicttestgroupdetail.cs" />
+    <Compile Include="Dicttestitem.cs" />
+    <Compile Include="Dicttestitemcenter.cs" />
+    <Compile Include="Dicttestitemmodel.cs" />
+    <Compile Include="Dicttestitemmodeldetail.cs" />
+    <Compile Include="Dicttestrefrange.cs" />
+    <Compile Include="Dicttuberack.cs" />
+    <Compile Include="Dictuser.cs" />
+    <Compile Include="Dictuserandgroup.cs" />
+    <Compile Include="Dictusergroup.cs" />
+    <Compile Include="Dictuserinstrument.cs" />
+    <Compile Include="Distributedetail.cs" />
+    <Compile Include="Distributehead.cs" />
+    <Compile Include="DomainBase.cs" />
+    <Compile Include="Initbasic.cs" />
+    <Compile Include="Initlocalsetting.cs" />
+    <Compile Include="Initsyssetting.cs" />
+    <Compile Include="Instrumentpicture.cs" />
+    <Compile Include="Instrumentrawdata.cs" />
+    <Compile Include="Instrumentresult.cs" />
+    <Compile Include="Instrumentseq.cs" />
+    <Compile Include="Instrumenttempresult.cs" />
+    <Compile Include="Maintenancelog.cs" />
+    <Compile Include="Micantibioticresult.cs" />
+    <Compile Include="Micorganismresult.cs" />
+    <Compile Include="Micresult.cs" />
+    <Compile Include="Operationlog.cs" />
+    <Compile Include="Pathologypicture.cs" />
+    <Compile Include="Pathologyresult.cs" />
+    <Compile Include="Pathologyseq.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qcmonthlycomment.cs" />
+    <Compile Include="Qcprocesslog.cs" />
+    <Compile Include="Qcresult.cs" />
+    <Compile Include="Specialresult.cs" />
+    <Compile Include="Specimenexception.cs" />
+    <Compile Include="Specimengrouptest.cs" />
+    <Compile Include="Specimenhead.cs" />
+    <Compile Include="Specimenheaddetail.cs" />
+    <Compile Include="Specimenmanage.cs" />
+    <Compile Include="Specimenpatientname.cs" />
+    <Compile Include="Specimenreport.cs" />
+    <Compile Include="Specimenreportdetail.cs" />
+    <Compile Include="Specimenrequestinfo.cs" />
+    <Compile Include="Specimenresult.cs" />
+    <Compile Include="Specimentest.cs" />
+    <Compile Include="Specinstrmentdetail.cs" />
+    <Compile Include="Specinstrmenttest.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

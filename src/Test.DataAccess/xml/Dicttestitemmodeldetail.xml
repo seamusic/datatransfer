@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DicttestitemmodeldetailMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dicttestitemmodeldetail"  type="Daan.DataTransfer.Test.Domain.Dicttestitemmodeldetail" />
+</alias>
+<resultMaps>
+		<resultMap id="DicttestitemmodeldetailResult" class="Dicttestitemmodeldetail"><result property="Dicttestitemmodeldetailid" column="DICTTESTITEMMODELDETAILID" type="single" dbType="Real"/><result property="Dicttestitemmodelid" column="DICTTESTITEMMODELID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Wherecondition" column="WHERECONDITION" type="string" dbType="varchar"/><result property="Wherevalue" column="WHEREVALUE" type="string" dbType="varchar"/><result property="Wherejoin" column="WHEREJOIN" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDicttestitemmodeldetail" parameterClass="string" resultMap="DicttestitemmodeldetailResult">SELECT DICTTESTITEMMODELDETAILID AS Dicttestitemmodeldetailid,DICTTESTITEMMODELID AS Dicttestitemmodelid,DICTTESTITEMID AS Dicttestitemid,WHERECONDITION AS Wherecondition,WHEREVALUE AS Wherevalue,WHEREJOIN AS WherejoinFROM DICTTESTITEMMODELDETAIL</select><insert id="InsertDicttestitemmodeldetail" parameterClass="Dicttestitemmodeldetail">	INSERT INTO DICTTESTITEMMODELDETAIL (DICTTESTITEMMODELDETAILID,DICTTESTITEMMODELID,DICTTESTITEMID,WHERECONDITION,WHEREVALUE,WHEREJOIN) 	VALUES(#Dicttestitemmodeldetailid#,#Dicttestitemmodelid#,#Dicttestitemid#,#Wherecondition#,#Wherevalue#,#Wherejoin#)</insert><update id="UpdateDicttestitemmodeldetail" parameterClass="Dicttestitemmodeldetail">UPDATE DICTTESTITEMMODELDETAIL  SET DICTTESTITEMMODELDETAILID=#Dicttestitemmodeldetailid#,DICTTESTITEMMODELID=#Dicttestitemmodelid#,DICTTESTITEMID=#Dicttestitemid#,WHERECONDITION=#Wherecondition#,WHEREVALUE=#Wherevalue#,WHEREJOIN=#Wherejoin#</update><delete id="DeleteDicttestitemmodeldetail" parameterClass="string">DELETE FROM DICTTESTITEMMODELDETAIL</delete>
+</statements>
+</sqlMap>

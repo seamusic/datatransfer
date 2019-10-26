@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictuserandgroupMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictuserandgroup"  type="Daan.DataTransfer.Test.Domain.Dictuserandgroup" />
+</alias>
+<resultMaps>
+		<resultMap id="DictuserandgroupResult" class="Dictuserandgroup"><result property="Dictuserandgroupid" column="DICTUSERANDGROUPID" type="single" dbType="Real"/><result property="Dictuserid" column="DICTUSERID" type="single" dbType="Real"/><result property="Dictgroupid" column="DICTGROUPID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictuserandgroup" parameterClass="string" resultMap="DictuserandgroupResult">SELECT DICTUSERANDGROUPID AS Dictuserandgroupid,DICTUSERID AS Dictuserid,DICTGROUPID AS DictgroupidFROM DICTUSERANDGROUP<dynamic prepend="WHERE"><isParameterPresent>DICTUSERANDGROUPID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictuserandgroup" parameterClass="Dictuserandgroup">	INSERT INTO DICTUSERANDGROUP (DICTUSERANDGROUPID,DICTUSERID,DICTGROUPID) 	VALUES(#Dictuserandgroupid#,#Dictuserid#,#Dictgroupid#)</insert><update id="UpdateDictuserandgroup" parameterClass="Dictuserandgroup">UPDATE DICTUSERANDGROUP  SET DICTUSERANDGROUPID=#Dictuserandgroupid#,DICTUSERID=#Dictuserid#,DICTGROUPID=#Dictgroupid#WHERE DICTUSERANDGROUPID = #Dictuserandgroupid#</update><delete id="DeleteDictuserandgroup" parameterClass="string">DELETE FROM DICTUSERANDGROUPWHERE DICTUSERANDGROUPID = #value#</delete>
+</statements>
+</sqlMap>

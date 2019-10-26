@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="OperationlogMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Operationlog"  type="Daan.DataTransfer.Test.Domain.Operationlog" />
+</alias>
+<resultMaps>
+		<resultMap id="OperationlogResult" class="Operationlog"><result property="Operationlogid" column="OPERATIONLOGID" type="single" dbType="Real"/><result property="Barcode" column="BARCODE" type="string" dbType="varchar"/><result property="Operationtype" column="OPERATIONTYPE" type="string" dbType="varchar"/><result property="Operation" column="OPERATION" type="string" dbType="varchar"/><result property="Operateby" column="OPERATEBY" type="single" dbType="Real"/><result property="Operatedate" column="OPERATEDATE" type="DateTime" dbType="DateTime"/><result property="Remark" column="REMARK" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectOperationlog" parameterClass="string" resultMap="OperationlogResult">SELECT OPERATIONLOGID AS Operationlogid,BARCODE AS Barcode,OPERATIONTYPE AS Operationtype,OPERATION AS Operation,OPERATEBY AS Operateby,OPERATEDATE AS Operatedate,REMARK AS RemarkFROM OPERATIONLOG<dynamic prepend="WHERE"><isParameterPresent>OPERATIONLOGID = #value#</isParameterPresent></dynamic></select><insert id="InsertOperationlog" parameterClass="Operationlog">	INSERT INTO OPERATIONLOG (OPERATIONLOGID,BARCODE,OPERATIONTYPE,OPERATION,OPERATEBY,OPERATEDATE,REMARK) 	VALUES(#Operationlogid#,#Barcode#,#Operationtype#,#Operation#,#Operateby#,#Operatedate:DateTime:1/1/0001 12:00:00 AM#,#Remark#)</insert><update id="UpdateOperationlog" parameterClass="Operationlog">UPDATE OPERATIONLOG  SET OPERATIONLOGID=#Operationlogid#,BARCODE=#Barcode#,OPERATIONTYPE=#Operationtype#,OPERATION=#Operation#,OPERATEBY=#Operateby#,OPERATEDATE=#Operatedate#,REMARK=#Remark#WHERE OPERATIONLOGID = #Operationlogid#</update><delete id="DeleteOperationlog" parameterClass="string">DELETE FROM OPERATIONLOGWHERE OPERATIONLOGID = #value#</delete>
+</statements>
+</sqlMap>

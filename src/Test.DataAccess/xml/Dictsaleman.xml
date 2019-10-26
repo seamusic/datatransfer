@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictsalemanMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictsaleman"  type="Daan.DataTransfer.Test.Domain.Dictsaleman" />
+</alias>
+<resultMaps>
+		<resultMap id="DictsalemanResult" class="Dictsaleman"><result property="Dictuserid" column="DICTUSERID" type="single" dbType="Real"/><result property="Memberid" column="MEMBERID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictsaleman" parameterClass="string" resultMap="DictsalemanResult">SELECT DICTUSERID AS Dictuserid,MEMBERID AS MemberidFROM DICTSALEMAN<dynamic prepend="WHERE"><isParameterPresent>DICTUSERID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictsaleman" parameterClass="Dictsaleman">	INSERT INTO DICTSALEMAN (DICTUSERID,MEMBERID) 	VALUES(#Dictuserid#,#Memberid#)</insert><update id="UpdateDictsaleman" parameterClass="Dictsaleman">UPDATE DICTSALEMAN  SET DICTUSERID=#Dictuserid#,MEMBERID=#Memberid#WHERE DICTUSERID = #Dictuserid#</update><delete id="DeleteDictsaleman" parameterClass="string">DELETE FROM DICTSALEMANWHERE DICTUSERID = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InstrumentseqMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Instrumentseq"  type="Daan.DataTransfer.Test.Domain.Instrumentseq" />
+</alias>
+<resultMaps>
+		<resultMap id="InstrumentseqResult" class="Instrumentseq"><result property="Instrumentseqid" column="INSTRUMENTSEQID" type="single" dbType="Real"/><result property="Instrumentid" column="INSTRUMENTID" type="single" dbType="Real"/><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Preseq" column="PRESEQ" type="string" dbType="varchar"/><result property="Seq" column="SEQ" type="string" dbType="varchar"/><result property="Matchdate" column="MATCHDATE" type="DateTime" dbType="DateTime"/><result property="Matchby" column="MATCHBY" type="single" dbType="Real"/><result property="Status" column="STATUS" type="single" dbType="Real"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectInstrumentseq" parameterClass="string" resultMap="InstrumentseqResult">SELECT INSTRUMENTSEQID AS Instrumentseqid,INSTRUMENTID AS Instrumentid,SUBBARCODE AS Subbarcode,PRESEQ AS Preseq,SEQ AS Seq,MATCHDATE AS Matchdate,MATCHBY AS Matchby,STATUS AS Status,CREATEDATE AS CreatedateFROM INSTRUMENTSEQ<dynamic prepend="WHERE"><isParameterPresent>INSTRUMENTSEQID = #value#</isParameterPresent></dynamic></select><insert id="InsertInstrumentseq" parameterClass="Instrumentseq">	INSERT INTO INSTRUMENTSEQ (INSTRUMENTSEQID,INSTRUMENTID,SUBBARCODE,PRESEQ,SEQ,MATCHDATE,MATCHBY,STATUS,CREATEDATE) 	VALUES(#Instrumentseqid#,#Instrumentid#,#Subbarcode#,#Preseq#,#Seq#,#Matchdate:DateTime:1/1/0001 12:00:00 AM#,#Matchby#,#Status#,#Createdate:DateTime:1/1/0001 12:00:00 AM#)</insert><update id="UpdateInstrumentseq" parameterClass="Instrumentseq">UPDATE INSTRUMENTSEQ  SET INSTRUMENTSEQID=#Instrumentseqid#,INSTRUMENTID=#Instrumentid#,SUBBARCODE=#Subbarcode#,PRESEQ=#Preseq#,SEQ=#Seq#,MATCHDATE=#Matchdate#,MATCHBY=#Matchby#,STATUS=#Status#,CREATEDATE=#Createdate#WHERE INSTRUMENTSEQID = #Instrumentseqid#</update><delete id="DeleteInstrumentseq" parameterClass="string">DELETE FROM INSTRUMENTSEQWHERE INSTRUMENTSEQID = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SpecialresultMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Specialresult"  type="Daan.DataTransfer.Test.Domain.Specialresult" />
+</alias>
+<resultMaps>
+		<resultMap id="SpecialresultResult" class="Specialresult"><result property="Specialresultid" column="SPECIALRESULTID" type="single" dbType="Real"/><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Itemname" column="ITEMNAME" type="string" dbType="varchar"/><result property="Result" column="RESULT" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectSpecialresult" parameterClass="string" resultMap="SpecialresultResult">SELECT SPECIALRESULTID AS Specialresultid,SUBBARCODE AS Subbarcode,ITEMNAME AS Itemname,RESULT AS Result,DISPLAYORDER AS Displayorder,CREATEDATE AS CreatedateFROM SPECIALRESULT<dynamic prepend="WHERE"><isParameterPresent>SPECIALRESULTID = #value#</isParameterPresent></dynamic></select><insert id="InsertSpecialresult" parameterClass="Specialresult">	INSERT INTO SPECIALRESULT (SPECIALRESULTID,SUBBARCODE,ITEMNAME,RESULT,DISPLAYORDER,CREATEDATE) 	VALUES(#Specialresultid#,#Subbarcode#,#Itemname#,#Result#,#Displayorder#,#Createdate:DateTime:1/1/0001 12:00:00 AM#)</insert><update id="UpdateSpecialresult" parameterClass="Specialresult">UPDATE SPECIALRESULT  SET SPECIALRESULTID=#Specialresultid#,SUBBARCODE=#Subbarcode#,ITEMNAME=#Itemname#,RESULT=#Result#,DISPLAYORDER=#Displayorder#,CREATEDATE=#Createdate#WHERE SPECIALRESULTID = #Specialresultid#</update><delete id="DeleteSpecialresult" parameterClass="string">DELETE FROM SPECIALRESULTWHERE SPECIALRESULTID = #value#</delete>
+</statements>
+</sqlMap>

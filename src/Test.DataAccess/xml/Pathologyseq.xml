@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PathologyseqMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Pathologyseq"  type="Daan.DataTransfer.Test.Domain.Pathologyseq" />
+</alias>
+<resultMaps>
+		<resultMap id="PathologyseqResult" class="Pathologyseq"><result property="Pathologyseqid" column="PATHOLOGYSEQID" type="single" dbType="Real"/><result property="Dictpathologytypeid" column="DICTPATHOLOGYTYPEID" type="single" dbType="Real"/><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Seq" column="SEQ" type="string" dbType="varchar"/><result property="Matchdate" column="MATCHDATE" type="DateTime" dbType="DateTime"/><result property="Matchby" column="MATCHBY" type="single" dbType="Real"/><result property="Status" column="STATUS" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectPathologyseq" parameterClass="string" resultMap="PathologyseqResult">SELECT PATHOLOGYSEQID AS Pathologyseqid,DICTPATHOLOGYTYPEID AS Dictpathologytypeid,SUBBARCODE AS Subbarcode,SEQ AS Seq,MATCHDATE AS Matchdate,MATCHBY AS Matchby,STATUS AS StatusFROM PATHOLOGYSEQ<dynamic prepend="WHERE"><isParameterPresent>PATHOLOGYSEQID = #value#</isParameterPresent></dynamic></select><insert id="InsertPathologyseq" parameterClass="Pathologyseq">	INSERT INTO PATHOLOGYSEQ (PATHOLOGYSEQID,DICTPATHOLOGYTYPEID,SUBBARCODE,SEQ,MATCHDATE,MATCHBY,STATUS) 	VALUES(#Pathologyseqid#,#Dictpathologytypeid#,#Subbarcode#,#Seq#,#Matchdate:DateTime:1/1/0001 12:00:00 AM#,#Matchby#,#Status#)</insert><update id="UpdatePathologyseq" parameterClass="Pathologyseq">UPDATE PATHOLOGYSEQ  SET PATHOLOGYSEQID=#Pathologyseqid#,DICTPATHOLOGYTYPEID=#Dictpathologytypeid#,SUBBARCODE=#Subbarcode#,SEQ=#Seq#,MATCHDATE=#Matchdate#,MATCHBY=#Matchby#,STATUS=#Status#WHERE PATHOLOGYSEQID = #Pathologyseqid#</update><delete id="DeletePathologyseq" parameterClass="string">DELETE FROM PATHOLOGYSEQWHERE PATHOLOGYSEQID = #value#</delete>
+</statements>
+</sqlMap>

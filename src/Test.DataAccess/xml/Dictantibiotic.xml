@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<sqlMap namespace="DictantibioticMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="Dictantibiotic" type="Daan.DataTransfer.Test.Domain.Dictantibiotic" />
+  </alias>
+  <resultMaps>
+    <resultMap id="DictantibioticResult" class="Dictantibiotic">
+      <result property="Dictantibioticid" column="DICTANTIBIOTICID" type="single" dbType="Real" />
+      <result property="Fastcode" column="FASTCODE" type="string" dbType="varchar" />
+      <result property="Antibioticcode" column="ANTIBIOTICCODE" type="string" dbType="varchar" />
+      <result property="Antibioticename" column="ANTIBIOTICENAME" type="string" dbType="varchar" />
+      <result property="Antibioticcname" column="ANTIBIOTICCNAME" type="string" dbType="varchar" />
+      <result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real" />
+      <result property="Report" column="REPORT" type="string" dbType="varchar" />
+      <result property="Active" column="ACTIVE" type="string" dbType="varchar" />
+      <result property="Whonetid" column="WHONETID" type="string" dbType="varchar" />
+      <result property="Whonetkbid" column="WHONETKBID" type="string" dbType="varchar" />
+      <result property="Whonetmicid" column="WHONETMICID" type="string" dbType="varchar" />
+      <result property="Whonetetestid" column="WHONETETESTID" type="string" dbType="varchar" />
+      <result property="Dosage1" column="DOSAGE1" type="string" dbType="varchar" />
+      <result property="Dosage2" column="DOSAGE2" type="string" dbType="varchar" />
+      <result property="Serum1" column="SERUM1" type="string" dbType="varchar" />
+      <result property="Serum2" column="SERUM2" type="string" dbType="varchar" />
+      <result property="Urine1" column="URINE1" type="string" dbType="varchar" />
+      <result property="Urine2" column="URINE2" type="string" dbType="varchar" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="SelectDictantibiotic" parameterClass="string" resultMap="DictantibioticResult">
+      SELECT DICTANTIBIOTICID AS Dictantibioticid,FASTCODE AS Fastcode,ANTIBIOTICCODE AS Antibioticcode,ANTIBIOTICENAME AS Antibioticename,ANTIBIOTICCNAME AS Antibioticcname,DISPLAYORDER AS Displayorder,REPORT AS Report,ACTIVE AS Active,WHONETID AS Whonetid,WHONETKBID AS Whonetkbid,WHONETMICID AS Whonetmicid,WHONETETESTID AS Whonetetestid,DOSAGE1 AS Dosage1,DOSAGE2 AS Dosage2,SERUM1 AS Serum1,SERUM2 AS Serum2,URINE1 AS Urine1,URINE2 AS Urine2
+      FROM DICTANTIBIOTIC
+      <dynamic prepend="WHERE">
+        <isParameterPresent>
+          DICTANTIBIOTICID = #value#
+        </isParameterPresent>
+      </dynamic>
+    </select>
+    <insert id="InsertDictantibiotic" parameterClass="Dictantibiotic">
+      INSERT INTO DICTANTIBIOTIC 
+      (DICTANTIBIOTICID,FASTCODE,ANTIBIOTICCODE,ANTIBIOTICENAME,ANTIBIOTICCNAME,DISPLAYORDER,REPORT,ACTIVE,WHONETID,WHONETKBID,WHONETMICID,WHONETETESTID,DOSAGE1,DOSAGE2,SERUM1,SERUM2,URINE1,URINE2) 
+      VALUES(#Dictantibioticid#,#Fastcode#,#Antibioticcode#,#Antibioticename#,#Antibioticcname#,#Displayorder#,#Report#,#Active#,#Whonetid#,#Whonetkbid#,#Whonetmicid#,#Whonetetestid#,#Dosage1#,#Dosage2#,#Serum1#,#Serum2#,#Urine1#,#Urine2#)
+    </insert>
+    <update id="UpdateDictantibiotic" parameterClass="Dictantibiotic">
+      UPDATE DICTANTIBIOTIC 
+      SET DICTANTIBIOTICID=#Dictantibioticid#,FASTCODE=#Fastcode#,ANTIBIOTICCODE=#Antibioticcode#,ANTIBIOTICENAME=#Antibioticename#,ANTIBIOTICCNAME=#Antibioticcname#,DISPLAYORDER=#Displayorder#,REPORT=#Report#,ACTIVE=#Active#,WHONETID=#Whonetid#,WHONETKBID=#Whonetkbid#,WHONETMICID=#Whonetmicid#,WHONETETESTID=#Whonetetestid#,DOSAGE1=#Dosage1#,DOSAGE2=#Dosage2#,SERUM1=#Serum1#,SERUM2=#Serum2#,URINE1=#Urine1#,URINE2=#Urine2#
+      WHERE DICTANTIBIOTICID = #Dictantibioticid#
+    </update>
+    <delete id="DeleteDictantibiotic" parameterClass="string">
+      DELETE FROM DICTANTIBIOTIC
+      WHERE DICTANTIBIOTICID = #value#
+    </delete>
+  </statements>
+</sqlMap>

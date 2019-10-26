@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictqccontrolMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictqccontrol"  type="Daan.DataTransfer.Test.Domain.Dictqccontrol" />
+</alias>
+<resultMaps>
+		<resultMap id="DictqccontrolResult" class="Dictqccontrol"><result property="Dictqccontrolid" column="DICTQCCONTROLID" type="single" dbType="Real"/><result property="Controlname" column="CONTROLNAME" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/><result property="Controlshape" column="CONTROLSHAPE" type="string" dbType="varchar"/><result property="Controlcolor" column="CONTROLCOLOR" type="string" dbType="varchar"/><result property="Uniqueid" column="UNIQUEID" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictqccontrol" parameterClass="string" resultMap="DictqccontrolResult">SELECT DICTQCCONTROLID AS Dictqccontrolid,CONTROLNAME AS Controlname,ACTIVE AS Active,CONTROLSHAPE AS Controlshape,CONTROLCOLOR AS Controlcolor,UNIQUEID AS UniqueidFROM DICTQCCONTROL<dynamic prepend="WHERE"><isParameterPresent>DICTQCCONTROLID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictqccontrol" parameterClass="Dictqccontrol">	INSERT INTO DICTQCCONTROL (DICTQCCONTROLID,CONTROLNAME,ACTIVE,CONTROLSHAPE,CONTROLCOLOR,UNIQUEID) 	VALUES(#Dictqccontrolid#,#Controlname#,#Active#,#Controlshape#,#Controlcolor#,#Uniqueid#)</insert><update id="UpdateDictqccontrol" parameterClass="Dictqccontrol">UPDATE DICTQCCONTROL  SET DICTQCCONTROLID=#Dictqccontrolid#,CONTROLNAME=#Controlname#,ACTIVE=#Active#,CONTROLSHAPE=#Controlshape#,CONTROLCOLOR=#Controlcolor#,UNIQUEID=#Uniqueid#WHERE DICTQCCONTROLID = #Dictqccontrolid#</update><delete id="DeleteDictqccontrol" parameterClass="string">DELETE FROM DICTQCCONTROLWHERE DICTQCCONTROLID = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcustomerexcelmapMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcustomerexcelmap"  type="Daan.DataTransfer.Test.Domain.Dictcustomerexcelmap" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcustomerexcelmapResult" class="Dictcustomerexcelmap"><result property="Dictcustomerexcelmapid" column="DICTCUSTOMEREXCELMAPID" type="single" dbType="Real"/><result property="Dictcustomerid" column="DICTCUSTOMERID" type="single" dbType="Real"/><result property="Tablename" column="TABLENAME" type="string" dbType="varchar"/><result property="Fieldname" column="FIELDNAME" type="string" dbType="varchar"/><result property="Columntitle" column="COLUMNTITLE" type="string" dbType="varchar"/><result property="Sitecode" column="SITECODE" type="string" dbType="varchar"/><result property="Isdefault" column="ISDEFAULT" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcustomerexcelmap" parameterClass="string" resultMap="DictcustomerexcelmapResult">SELECT DICTCUSTOMEREXCELMAPID AS Dictcustomerexcelmapid,DICTCUSTOMERID AS Dictcustomerid,TABLENAME AS Tablename,FIELDNAME AS Fieldname,COLUMNTITLE AS Columntitle,SITECODE AS Sitecode,ISDEFAULT AS IsdefaultFROM DICTCUSTOMEREXCELMAP<dynamic prepend="WHERE"><isParameterPresent>DICTCUSTOMEREXCELMAPID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictcustomerexcelmap" parameterClass="Dictcustomerexcelmap">	INSERT INTO DICTCUSTOMEREXCELMAP (DICTCUSTOMEREXCELMAPID,DICTCUSTOMERID,TABLENAME,FIELDNAME,COLUMNTITLE,SITECODE,ISDEFAULT) 	VALUES(#Dictcustomerexcelmapid#,#Dictcustomerid#,#Tablename#,#Fieldname#,#Columntitle#,#Sitecode#,#Isdefault#)</insert><update id="UpdateDictcustomerexcelmap" parameterClass="Dictcustomerexcelmap">UPDATE DICTCUSTOMEREXCELMAP  SET DICTCUSTOMEREXCELMAPID=#Dictcustomerexcelmapid#,DICTCUSTOMERID=#Dictcustomerid#,TABLENAME=#Tablename#,FIELDNAME=#Fieldname#,COLUMNTITLE=#Columntitle#,SITECODE=#Sitecode#,ISDEFAULT=#Isdefault#WHERE DICTCUSTOMEREXCELMAPID = #Dictcustomerexcelmapid#</update><delete id="DeleteDictcustomerexcelmap" parameterClass="string">DELETE FROM DICTCUSTOMEREXCELMAPWHERE DICTCUSTOMEREXCELMAPID = #value#</delete>
+</statements>
+</sqlMap>

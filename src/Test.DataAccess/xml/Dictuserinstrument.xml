@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictuserinstrumentMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictuserinstrument"  type="Daan.DataTransfer.Test.Domain.Dictuserinstrument" />
+</alias>
+<resultMaps>
+		<resultMap id="DictuserinstrumentResult" class="Dictuserinstrument"><result property="Dictuserinstrumentid" column="DICTUSERINSTRUMENTID" type="single" dbType="Real"/><result property="Dictuserid" column="DICTUSERID" type="single" dbType="Real"/><result property="Dictinstrumentid" column="DICTINSTRUMENTID" type="single" dbType="Real"/><result property="Ispermit" column="ISPERMIT" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictuserinstrument" parameterClass="string" resultMap="DictuserinstrumentResult">SELECT DICTUSERINSTRUMENTID AS Dictuserinstrumentid,DICTUSERID AS Dictuserid,DICTINSTRUMENTID AS Dictinstrumentid,ISPERMIT AS IspermitFROM DICTUSERINSTRUMENT<dynamic prepend="WHERE"><isParameterPresent>DICTUSERINSTRUMENTID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictuserinstrument" parameterClass="Dictuserinstrument">	INSERT INTO DICTUSERINSTRUMENT (DICTUSERINSTRUMENTID,DICTUSERID,DICTINSTRUMENTID,ISPERMIT) 	VALUES(#Dictuserinstrumentid#,#Dictuserid#,#Dictinstrumentid#,#Ispermit#)</insert><update id="UpdateDictuserinstrument" parameterClass="Dictuserinstrument">UPDATE DICTUSERINSTRUMENT  SET DICTUSERINSTRUMENTID=#Dictuserinstrumentid#,DICTUSERID=#Dictuserid#,DICTINSTRUMENTID=#Dictinstrumentid#,ISPERMIT=#Ispermit#WHERE DICTUSERINSTRUMENTID = #Dictuserinstrumentid#</update><delete id="DeleteDictuserinstrument" parameterClass="string">DELETE FROM DICTUSERINSTRUMENTWHERE DICTUSERINSTRUMENTID = #value#</delete>
+</statements>
+</sqlMap>

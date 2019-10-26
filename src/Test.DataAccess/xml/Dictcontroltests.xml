@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcontroltestsMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcontroltests"  type="Daan.DataTransfer.Test.Domain.Dictcontroltests" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcontroltestsResult" class="Dictcontroltests"><result property="Dictcontroltestsid" column="DICTCONTROLTESTSID" type="single" dbType="Real"/><result property="Dictcontrolid" column="DICTCONTROLID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcontroltests" parameterClass="string" resultMap="DictcontroltestsResult">SELECT DICTCONTROLTESTSID AS Dictcontroltestsid,DICTCONTROLID AS Dictcontrolid,DICTTESTITEMID AS DicttestitemidFROM DICTCONTROLTESTS<dynamic prepend="WHERE"><isParameterPresent>DICTCONTROLTESTSID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictcontroltests" parameterClass="Dictcontroltests">	INSERT INTO DICTCONTROLTESTS (DICTCONTROLTESTSID,DICTCONTROLID,DICTTESTITEMID) 	VALUES(#Dictcontroltestsid#,#Dictcontrolid#,#Dicttestitemid#)</insert><update id="UpdateDictcontroltests" parameterClass="Dictcontroltests">UPDATE DICTCONTROLTESTS  SET DICTCONTROLTESTSID=#Dictcontroltestsid#,DICTCONTROLID=#Dictcontrolid#,DICTTESTITEMID=#Dicttestitemid#WHERE DICTCONTROLTESTSID = #Dictcontroltestsid#</update><delete id="DeleteDictcontroltests" parameterClass="string">DELETE FROM DICTCONTROLTESTSWHERE DICTCONTROLTESTSID = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SpecimenreportdetailMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Specimenreportdetail"  type="Daan.DataTransfer.Test.Domain.Specimenreportdetail" />
+</alias>
+<resultMaps>
+		<resultMap id="SpecimenreportdetailResult" class="Specimenreportdetail"><result property="Specimenreportid" column="SPECIMENREPORTID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Status" column="STATUS" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectSpecimenreportdetail" parameterClass="string" resultMap="SpecimenreportdetailResult">SELECT SPECIMENREPORTID AS Specimenreportid,DICTTESTITEMID AS Dicttestitemid,CREATEDATE AS Createdate,SUBBARCODE AS Subbarcode,STATUS AS StatusFROM SPECIMENREPORTDETAIL<dynamic prepend="WHERE"><isParameterPresent>SPECIMENREPORTID = #value#</isParameterPresent></dynamic></select><insert id="InsertSpecimenreportdetail" parameterClass="Specimenreportdetail">	INSERT INTO SPECIMENREPORTDETAIL (SPECIMENREPORTID,DICTTESTITEMID,CREATEDATE,SUBBARCODE,STATUS) 	VALUES(#Specimenreportid#,#Dicttestitemid#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Subbarcode#,#Status#)</insert><update id="UpdateSpecimenreportdetail" parameterClass="Specimenreportdetail">UPDATE SPECIMENREPORTDETAIL  SET SPECIMENREPORTID=#Specimenreportid#,DICTTESTITEMID=#Dicttestitemid#,CREATEDATE=#Createdate#,SUBBARCODE=#Subbarcode#,STATUS=#Status#WHERE SPECIMENREPORTID = #Specimenreportid#</update><delete id="DeleteSpecimenreportdetail" parameterClass="string">DELETE FROM SPECIMENREPORTDETAILWHERE SPECIMENREPORTID = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcheckcustomerMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcheckcustomer"  type="Daan.DataTransfer.Test.Domain.Dictcheckcustomer" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcheckcustomerResult" class="Dictcheckcustomer"><result property="Dictcheckcustomerid" column="DICTCHECKCUSTOMERID" type="single" dbType="Real"/><result property="Customername" column="CUSTOMERNAME" type="string" dbType="varchar"/><result property="Checkcustomercode" column="CHECKCUSTOMERCODE" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcheckcustomer" parameterClass="string" resultMap="DictcheckcustomerResult">SELECT DICTCHECKCUSTOMERID AS Dictcheckcustomerid,CUSTOMERNAME AS Customername,CHECKCUSTOMERCODE AS Checkcustomercode,ACTIVE AS Active,CREATEDATE AS CreatedateFROM DICTCHECKCUSTOMER</select><insert id="InsertDictcheckcustomer" parameterClass="Dictcheckcustomer">	INSERT INTO DICTCHECKCUSTOMER (DICTCHECKCUSTOMERID,CUSTOMERNAME,CHECKCUSTOMERCODE,ACTIVE,CREATEDATE) 	VALUES(#Dictcheckcustomerid#,#Customername#,#Checkcustomercode#,#Active#,#Createdate:DateTime:1/1/0001 12:00:00 AM#)</insert><update id="UpdateDictcheckcustomer" parameterClass="Dictcheckcustomer">UPDATE DICTCHECKCUSTOMER  SET DICTCHECKCUSTOMERID=#Dictcheckcustomerid#,CUSTOMERNAME=#Customername#,CHECKCUSTOMERCODE=#Checkcustomercode#,ACTIVE=#Active#,CREATEDATE=#Createdate#</update><delete id="DeleteDictcheckcustomer" parameterClass="string">DELETE FROM DICTCHECKCUSTOMER</delete>
+</statements>
+</sqlMap>

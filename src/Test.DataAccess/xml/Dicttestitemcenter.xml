@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DicttestitemcenterMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dicttestitemcenter"  type="Daan.DataTransfer.Test.Domain.Dicttestitemcenter" />
+</alias>
+<resultMaps>
+		<resultMap id="DicttestitemcenterResult" class="Dicttestitemcenter"><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Testcode" column="TESTCODE" type="string" dbType="varchar"/><result property="Engname" column="ENGNAME" type="string" dbType="varchar"/><result property="Testname" column="TESTNAME" type="string" dbType="varchar"/><result property="Uniqueid" column="UNIQUEID" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDicttestitemcenter" parameterClass="string" resultMap="DicttestitemcenterResult">SELECT DICTTESTITEMID AS Dicttestitemid,TESTCODE AS Testcode,ENGNAME AS Engname,TESTNAME AS Testname,UNIQUEID AS UniqueidFROM DICTTESTITEMCENTER</select><insert id="InsertDicttestitemcenter" parameterClass="Dicttestitemcenter">	INSERT INTO DICTTESTITEMCENTER (DICTTESTITEMID,TESTCODE,ENGNAME,TESTNAME,UNIQUEID) 	VALUES(#Dicttestitemid#,#Testcode#,#Engname#,#Testname#,#Uniqueid#)</insert><update id="UpdateDicttestitemcenter" parameterClass="Dicttestitemcenter">UPDATE DICTTESTITEMCENTER  SET DICTTESTITEMID=#Dicttestitemid#,TESTCODE=#Testcode#,ENGNAME=#Engname#,TESTNAME=#Testname#,UNIQUEID=#Uniqueid#</update><delete id="DeleteDicttestitemcenter" parameterClass="string">DELETE FROM DICTTESTITEMCENTER</delete>
+</statements>
+</sqlMap>

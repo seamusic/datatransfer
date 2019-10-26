@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictfastcommentMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictfastcomment"  type="Daan.DataTransfer.Test.Domain.Dictfastcomment" />
+</alias>
+<resultMaps>
+		<resultMap id="DictfastcommentResult" class="Dictfastcomment"><result property="Dictfastcommentid" column="DICTFASTCOMMENTID" type="single" dbType="Real"/><result property="Moduleid" column="MODULEID" type="string" dbType="varchar"/><result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/><result property="Commentdesc" column="COMMENTDESC" type="string" dbType="varchar"/><result property="Keymask" column="KEYMASK" type="string" dbType="varchar"/><result property="Hotkey" column="HOTKEY" type="string" dbType="varchar"/><result property="Dictlabdeptid" column="DICTLABDEPTID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictfastcomment" parameterClass="string" resultMap="DictfastcommentResult">SELECT DICTFASTCOMMENTID AS Dictfastcommentid,MODULEID AS Moduleid,FASTCODE AS Fastcode,COMMENTDESC AS Commentdesc,KEYMASK AS Keymask,HOTKEY AS Hotkey,DICTLABDEPTID AS DictlabdeptidFROM DICTFASTCOMMENT<dynamic prepend="WHERE"><isParameterPresent>DICTFASTCOMMENTID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictfastcomment" parameterClass="Dictfastcomment">	INSERT INTO DICTFASTCOMMENT (DICTFASTCOMMENTID,MODULEID,FASTCODE,COMMENTDESC,KEYMASK,HOTKEY,DICTLABDEPTID) 	VALUES(#Dictfastcommentid#,#Moduleid#,#Fastcode#,#Commentdesc#,#Keymask#,#Hotkey#,#Dictlabdeptid#)</insert><update id="UpdateDictfastcomment" parameterClass="Dictfastcomment">UPDATE DICTFASTCOMMENT  SET DICTFASTCOMMENTID=#Dictfastcommentid#,MODULEID=#Moduleid#,FASTCODE=#Fastcode#,COMMENTDESC=#Commentdesc#,KEYMASK=#Keymask#,HOTKEY=#Hotkey#,DICTLABDEPTID=#Dictlabdeptid#WHERE DICTFASTCOMMENTID = #Dictfastcommentid#</update><delete id="DeleteDictfastcomment" parameterClass="string">DELETE FROM DICTFASTCOMMENTWHERE DICTFASTCOMMENTID = #value#</delete>
+</statements>
+</sqlMap>

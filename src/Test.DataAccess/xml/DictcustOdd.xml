@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcustOddMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="DictcustOdd"  type="Daan.DataTransfer.Test.Domain.DictcustOdd" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcustOddResult" class="DictcustOdd"><result property="Custcode" column="CUSTCODE" type="string" dbType="varchar"/><result property="Custname" column="CUSTNAME" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcustOdd" parameterClass="string" resultMap="DictcustOddResult">SELECT CUSTCODE AS Custcode,CUSTNAME AS CustnameFROM DICTCUST_ODD</select><insert id="InsertDictcustOdd" parameterClass="DictcustOdd">	INSERT INTO DICTCUST_ODD (CUSTCODE,CUSTNAME) 	VALUES(#Custcode#,#Custname#)</insert><update id="UpdateDictcustOdd" parameterClass="DictcustOdd">UPDATE DICTCUST_ODD  SET CUSTCODE=#Custcode#,CUSTNAME=#Custname#</update><delete id="DeleteDictcustOdd" parameterClass="string">DELETE FROM DICTCUST_ODD</delete>
+</statements>
+</sqlMap>

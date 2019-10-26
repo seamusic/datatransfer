@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<sqlMap namespace="QcmonthlycommentMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="Qcmonthlycomment" 
+               type="Daan.DataTransfer.Test.Domain.Qcmonthlycomment" />
+  </alias>
+  <resultMaps>
+    <resultMap id="QcmonthlycommentResult" class="Qcmonthlycomment">
+      <result property="Qcmonthlycommentid" column="QCMONTHLYCOMMENTID" type="single" dbType="Real" />
+      <result property="Dictqclotid" column="DICTQCLOTID" type="single" dbType="Real" />
+      <result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real" />
+      <result property="Qcmonth" column="QCMONTH" type="DateTime" dbType="DateTime" />
+      <result property="Monthlycomment" column="MONTHLYCOMMENT" type="string" dbType="varchar" />
+      <result property="Commentby" column="COMMENTBY" type="single" dbType="Real" />
+      <result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="SelectQcmonthlycomment" parameterClass="string" resultMap="QcmonthlycommentResult">
+      SELECT QCMONTHLYCOMMENTID AS Qcmonthlycommentid,DICTQCLOTID AS Dictqclotid,DICTTESTITEMID AS Dicttestitemid,QCMONTH AS Qcmonth,MONTHLYCOMMENT AS Monthlycomment,COMMENTBY AS Commentby,CREATEDATE AS Createdate
+      FROM QCMONTHLYCOMMENT
+      <dynamic prepend="WHERE">
+        <isParameterPresent>
+          QCMONTHLYCOMMENTID = #value#
+        </isParameterPresent>
+      </dynamic>
+    </select>
+    <insert id="InsertQcmonthlycomment" parameterClass="Qcmonthlycomment">
+      INSERT INTO QCMONTHLYCOMMENT 
+      (QCMONTHLYCOMMENTID,DICTQCLOTID,DICTTESTITEMID,QCMONTH,MONTHLYCOMMENT,COMMENTBY,CREATEDATE) 
+      VALUES(#Qcmonthlycommentid#,#Dictqclotid#,#Dicttestitemid#,#Qcmonth:DateTime:1/1/0001 12:00:00 AM#,#Monthlycomment#,#Commentby#,#Createdate:DateTime:1/1/0001 12:00:00 AM#)
+    </insert>
+    <update id="UpdateQcmonthlycomment" parameterClass="Qcmonthlycomment">
+      UPDATE QCMONTHLYCOMMENT 
+      SET QCMONTHLYCOMMENTID=#Qcmonthlycommentid#,DICTQCLOTID=#Dictqclotid#,DICTTESTITEMID=#Dicttestitemid#,QCMONTH=#Qcmonth#,MONTHLYCOMMENT=#Monthlycomment#,COMMENTBY=#Commentby#,CREATEDATE=#Createdate#
+      WHERE QCMONTHLYCOMMENTID = #Qcmonthlycommentid#
+    </update>
+    <delete id="DeleteQcmonthlycomment" parameterClass="string">
+      DELETE FROM QCMONTHLYCOMMENT
+      WHERE QCMONTHLYCOMMENTID = #value#
+    </delete>
+  </statements>
+</sqlMap>

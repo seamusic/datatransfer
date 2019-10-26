@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictantibioticrefrangeMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictantibioticrefrange"  type="Daan.DataTransfer.Test.Domain.Dictantibioticrefrange" />
+</alias>
+<resultMaps>
+		<resultMap id="DictantibioticrefrangeResult" class="Dictantibioticrefrange"><result property="Dictantibioticrefrangeid" column="DICTANTIBIOTICREFRANGEID" type="single" dbType="Real"/><result property="Dicttantibioticgroupid" column="DICTTANTIBIOTICGROUPID" type="single" dbType="Real"/><result property="Dictantibioticid" column="DICTANTIBIOTICID" type="single" dbType="Real"/><result property="Kbrbegin" column="KBRBEGIN" type="single" dbType="Real"/><result property="Kbsbegin" column="KBSBEGIN" type="single" dbType="Real"/><result property="Micrbegin" column="MICRBEGIN" type="single" dbType="Real"/><result property="Micsbegin" column="MICSBEGIN" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictantibioticrefrange" parameterClass="string" resultMap="DictantibioticrefrangeResult">SELECT DICTANTIBIOTICREFRANGEID AS Dictantibioticrefrangeid,DICTTANTIBIOTICGROUPID AS Dicttantibioticgroupid,DICTANTIBIOTICID AS Dictantibioticid,KBRBEGIN AS Kbrbegin,KBSBEGIN AS Kbsbegin,MICRBEGIN AS Micrbegin,MICSBEGIN AS MicsbeginFROM DICTANTIBIOTICREFRANGE<dynamic prepend="WHERE"><isParameterPresent>DICTANTIBIOTICREFRANGEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictantibioticrefrange" parameterClass="Dictantibioticrefrange">	INSERT INTO DICTANTIBIOTICREFRANGE (DICTANTIBIOTICREFRANGEID,DICTTANTIBIOTICGROUPID,DICTANTIBIOTICID,KBRBEGIN,KBSBEGIN,MICRBEGIN,MICSBEGIN) 	VALUES(#Dictantibioticrefrangeid#,#Dicttantibioticgroupid#,#Dictantibioticid#,#Kbrbegin#,#Kbsbegin#,#Micrbegin#,#Micsbegin#)</insert><update id="UpdateDictantibioticrefrange" parameterClass="Dictantibioticrefrange">UPDATE DICTANTIBIOTICREFRANGE  SET DICTANTIBIOTICREFRANGEID=#Dictantibioticrefrangeid#,DICTTANTIBIOTICGROUPID=#Dicttantibioticgroupid#,DICTANTIBIOTICID=#Dictantibioticid#,KBRBEGIN=#Kbrbegin#,KBSBEGIN=#Kbsbegin#,MICRBEGIN=#Micrbegin#,MICSBEGIN=#Micsbegin#WHERE DICTANTIBIOTICREFRANGEID = #Dictantibioticrefrangeid#</update><delete id="DeleteDictantibioticrefrange" parameterClass="string">DELETE FROM DICTANTIBIOTICREFRANGEWHERE DICTANTIBIOTICREFRANGEID = #value#</delete>
+</statements>
+</sqlMap>

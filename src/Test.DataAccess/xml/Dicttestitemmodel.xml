@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DicttestitemmodelMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dicttestitemmodel"  type="Daan.DataTransfer.Test.Domain.Dicttestitemmodel" />
+</alias>
+<resultMaps>
+		<resultMap id="DicttestitemmodelResult" class="Dicttestitemmodel"><result property="Dicttestitemmodelid" column="DICTTESTITEMMODELID" type="single" dbType="Real"/><result property="Modeltitle" column="MODELTITLE" type="string" dbType="varchar"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Orderby" column="ORDERBY" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDicttestitemmodel" parameterClass="string" resultMap="DicttestitemmodelResult">SELECT DICTTESTITEMMODELID AS Dicttestitemmodelid,MODELTITLE AS Modeltitle,CREATEDATE AS Createdate,ORDERBY AS OrderbyFROM DICTTESTITEMMODEL</select><insert id="InsertDicttestitemmodel" parameterClass="Dicttestitemmodel">	INSERT INTO DICTTESTITEMMODEL (DICTTESTITEMMODELID,MODELTITLE,CREATEDATE,ORDERBY) 	VALUES(#Dicttestitemmodelid#,#Modeltitle#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Orderby#)</insert><update id="UpdateDicttestitemmodel" parameterClass="Dicttestitemmodel">UPDATE DICTTESTITEMMODEL  SET DICTTESTITEMMODELID=#Dicttestitemmodelid#,MODELTITLE=#Modeltitle#,CREATEDATE=#Createdate#,ORDERBY=#Orderby#</update><delete id="DeleteDicttestitemmodel" parameterClass="string">DELETE FROM DICTTESTITEMMODEL</delete>
+</statements>
+</sqlMap>

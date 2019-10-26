@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictlocationMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictlocation"  type="Daan.DataTransfer.Test.Domain.Dictlocation" />
+</alias>
+<resultMaps>
+		<resultMap id="DictlocationResult" class="Dictlocation"><result property="Dictlocationid" column="DICTLOCATIONID" type="single" dbType="Real"/><result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/><result property="Locationcode" column="LOCATIONCODE" type="string" dbType="varchar"/><result property="Locationname" column="LOCATIONNAME" type="string" dbType="varchar"/><result property="Remark" column="REMARK" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/><result property="Dictcustomerid" column="DICTCUSTOMERID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictlocation" parameterClass="string" resultMap="DictlocationResult">SELECT DICTLOCATIONID AS Dictlocationid,FASTCODE AS Fastcode,LOCATIONCODE AS Locationcode,LOCATIONNAME AS Locationname,REMARK AS Remark,ACTIVE AS Active,DICTCUSTOMERID AS DictcustomeridFROM DICTLOCATION<dynamic prepend="WHERE"><isParameterPresent>DICTLOCATIONID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictlocation" parameterClass="Dictlocation">	INSERT INTO DICTLOCATION (DICTLOCATIONID,FASTCODE,LOCATIONCODE,LOCATIONNAME,REMARK,ACTIVE,DICTCUSTOMERID) 	VALUES(#Dictlocationid#,#Fastcode#,#Locationcode#,#Locationname#,#Remark#,#Active#,#Dictcustomerid#)</insert><update id="UpdateDictlocation" parameterClass="Dictlocation">UPDATE DICTLOCATION  SET DICTLOCATIONID=#Dictlocationid#,FASTCODE=#Fastcode#,LOCATIONCODE=#Locationcode#,LOCATIONNAME=#Locationname#,REMARK=#Remark#,ACTIVE=#Active#,DICTCUSTOMERID=#Dictcustomerid#WHERE DICTLOCATIONID = #Dictlocationid#</update><delete id="DeleteDictlocation" parameterClass="string">DELETE FROM DICTLOCATIONWHERE DICTLOCATIONID = #value#</delete>
+</statements>
+</sqlMap>

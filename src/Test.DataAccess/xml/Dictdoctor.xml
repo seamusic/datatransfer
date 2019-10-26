@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictdoctorMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictdoctor"  type="Daan.DataTransfer.Test.Domain.Dictdoctor" />
+</alias>
+<resultMaps>
+		<resultMap id="DictdoctorResult" class="Dictdoctor"><result property="Dictdoctorid" column="DICTDOCTORID" type="single" dbType="Real"/><result property="Dictlocationid" column="DICTLOCATIONID" type="single" dbType="Real"/><result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/><result property="Doctorcode" column="DOCTORCODE" type="string" dbType="varchar"/><result property="Doctorname" column="DOCTORNAME" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/><result property="Dictcustomerid" column="DICTCUSTOMERID" type="single" dbType="Real"/><result property="Phone" column="PHONE" type="string" dbType="varchar"/><result property="Remark" column="REMARK" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictdoctor" parameterClass="string" resultMap="DictdoctorResult">SELECT DICTDOCTORID AS Dictdoctorid,DICTLOCATIONID AS Dictlocationid,FASTCODE AS Fastcode,DOCTORCODE AS Doctorcode,DOCTORNAME AS Doctorname,ACTIVE AS Active,DICTCUSTOMERID AS Dictcustomerid,PHONE AS Phone,REMARK AS RemarkFROM DICTDOCTOR<dynamic prepend="WHERE"><isParameterPresent>DICTDOCTORID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictdoctor" parameterClass="Dictdoctor">	INSERT INTO DICTDOCTOR (DICTDOCTORID,DICTLOCATIONID,FASTCODE,DOCTORCODE,DOCTORNAME,ACTIVE,DICTCUSTOMERID,PHONE,REMARK) 	VALUES(#Dictdoctorid#,#Dictlocationid#,#Fastcode#,#Doctorcode#,#Doctorname#,#Active#,#Dictcustomerid#,#Phone#,#Remark#)</insert><update id="UpdateDictdoctor" parameterClass="Dictdoctor">UPDATE DICTDOCTOR  SET DICTDOCTORID=#Dictdoctorid#,DICTLOCATIONID=#Dictlocationid#,FASTCODE=#Fastcode#,DOCTORCODE=#Doctorcode#,DOCTORNAME=#Doctorname#,ACTIVE=#Active#,DICTCUSTOMERID=#Dictcustomerid#,PHONE=#Phone#,REMARK=#Remark#WHERE DICTDOCTORID = #Dictdoctorid#</update><delete id="DeleteDictdoctor" parameterClass="string">DELETE FROM DICTDOCTORWHERE DICTDOCTORID = #value#</delete>
+</statements>
+</sqlMap>

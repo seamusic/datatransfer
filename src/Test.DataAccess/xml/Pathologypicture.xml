@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PathologypictureMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Pathologypicture"  type="Daan.DataTransfer.Test.Domain.Pathologypicture" />
+</alias>
+<resultMaps>
+		<resultMap id="PathologypictureResult" class="Pathologypicture"><result property="Pathologypictureid" column="PATHOLOGYPICTUREID" type="single" dbType="Real"/><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Filename" column="FILENAME" type="string" dbType="varchar"/><result property="Remark" column="REMARK" type="string" dbType="varchar"/><result property="Report" column="REPORT" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Isbopian" column="ISBOPIAN" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectPathologypicture" parameterClass="string" resultMap="PathologypictureResult">SELECT PATHOLOGYPICTUREID AS Pathologypictureid,SUBBARCODE AS Subbarcode,FILENAME AS Filename,REMARK AS Remark,REPORT AS Report,DISPLAYORDER AS Displayorder,CREATEDATE AS Createdate,DICTTESTITEMID AS Dicttestitemid,ISBOPIAN AS IsbopianFROM PATHOLOGYPICTURE<dynamic prepend="WHERE"><isParameterPresent>PATHOLOGYPICTUREID = #value#</isParameterPresent></dynamic></select><insert id="InsertPathologypicture" parameterClass="Pathologypicture">	INSERT INTO PATHOLOGYPICTURE (PATHOLOGYPICTUREID,SUBBARCODE,FILENAME,REMARK,REPORT,DISPLAYORDER,CREATEDATE,DICTTESTITEMID,ISBOPIAN) 	VALUES(#Pathologypictureid#,#Subbarcode#,#Filename#,#Remark#,#Report#,#Displayorder#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Dicttestitemid#,#Isbopian#)</insert><update id="UpdatePathologypicture" parameterClass="Pathologypicture">UPDATE PATHOLOGYPICTURE  SET PATHOLOGYPICTUREID=#Pathologypictureid#,SUBBARCODE=#Subbarcode#,FILENAME=#Filename#,REMARK=#Remark#,REPORT=#Report#,DISPLAYORDER=#Displayorder#,CREATEDATE=#Createdate#,DICTTESTITEMID=#Dicttestitemid#,ISBOPIAN=#Isbopian#WHERE PATHOLOGYPICTUREID = #Pathologypictureid#</update><delete id="DeletePathologypicture" parameterClass="string">DELETE FROM PATHOLOGYPICTUREWHERE PATHOLOGYPICTUREID = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DicttestgroupdetailMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dicttestgroupdetail"  type="Daan.DataTransfer.Test.Domain.Dicttestgroupdetail" />
+</alias>
+<resultMaps>
+		<resultMap id="DicttestgroupdetailResult" class="Dicttestgroupdetail"><result property="Testgroupid" column="TESTGROUPID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	
+<select id="SelectDicttestgroupdetail" parameterClass="string" resultMap="DicttestgroupdetailResult">
+SELECT TESTGROUPID AS Testgroupid,DICTTESTITEMID AS Dicttestitemid
+FROM DICTTESTGROUPDETAIL
+<dynamic prepend="WHERE">
+<isParameterPresent>TESTGROUPID = #value#
+</isParameterPresent>
+</dynamic>
+</select>
+<insert id="InsertDicttestgroupdetail" parameterClass="Dicttestgroupdetail">
+	INSERT INTO DICTTESTGROUPDETAIL 
+(TESTGROUPID,DICTTESTITEMID) 
+	VALUES(#Testgroupid#,#Dicttestitemid#)
+</insert>
+<update id="UpdateDicttestgroupdetail" parameterClass="Dicttestgroupdetail">
+UPDATE DICTTESTGROUPDETAIL 
+ SET TESTGROUPID=#Testgroupid#,DICTTESTITEMID=#Dicttestitemid#
+WHERE TESTGROUPID = #Testgroupid#
+</update>
+<delete id="DeleteDicttestgroupdetail" parameterClass="string">
+DELETE FROM DICTTESTGROUPDETAIL
+WHERE TESTGROUPID = #value#
+</delete>
+</statements>
+</sqlMap>

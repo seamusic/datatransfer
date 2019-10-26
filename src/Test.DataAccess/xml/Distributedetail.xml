@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DistributedetailMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Distributedetail"  type="Daan.DataTransfer.Test.Domain.Distributedetail" />
+</alias>
+<resultMaps>
+		<resultMap id="DistributedetailResult" class="Distributedetail"><result property="Rackbarcode" column="RACKBARCODE" type="string" dbType="varchar"/><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Xpos" column="XPOS" type="single" dbType="Real"/><result property="Ypos" column="YPOS" type="single" dbType="Real"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Distributeby" column="DISTRIBUTEBY" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDistributedetail" parameterClass="string" resultMap="DistributedetailResult">SELECT RACKBARCODE AS Rackbarcode,SUBBARCODE AS Subbarcode,XPOS AS Xpos,YPOS AS Ypos,CREATEDATE AS Createdate,DISTRIBUTEBY AS DistributebyFROM DISTRIBUTEDETAIL<dynamic prepend="WHERE"><isParameterPresent>RACKBARCODE = #value#</isParameterPresent></dynamic></select><insert id="InsertDistributedetail" parameterClass="Distributedetail">	INSERT INTO DISTRIBUTEDETAIL (RACKBARCODE,SUBBARCODE,XPOS,YPOS,CREATEDATE,DISTRIBUTEBY) 	VALUES(#Rackbarcode#,#Subbarcode#,#Xpos#,#Ypos#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Distributeby#)</insert><update id="UpdateDistributedetail" parameterClass="Distributedetail">UPDATE DISTRIBUTEDETAIL  SET RACKBARCODE=#Rackbarcode#,SUBBARCODE=#Subbarcode#,XPOS=#Xpos#,YPOS=#Ypos#,CREATEDATE=#Createdate#,DISTRIBUTEBY=#Distributeby#WHERE RACKBARCODE = #Rackbarcode#</update><delete id="DeleteDistributedetail" parameterClass="string">DELETE FROM DISTRIBUTEDETAILWHERE RACKBARCODE = #value#</delete>
+</statements>
+</sqlMap>

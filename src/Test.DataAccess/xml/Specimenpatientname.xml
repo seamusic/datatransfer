@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SpecimenpatientnameMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Specimenpatientname"  type="Daan.DataTransfer.Test.Domain.Specimenpatientname" />
+</alias>
+<resultMaps>
+		<resultMap id="SpecimenpatientnameResult" class="Specimenpatientname"><result property="Barcode" column="BARCODE" type="string" dbType="varchar"/><result property="Patientname" column="PATIENTNAME" type="Byte" dbType="Binary"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Useimage" column="USEIMAGE" type="string" dbType="varchar"/><result property="Captureimage" column="CAPTUREIMAGE" type="Byte" dbType="Binary"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectSpecimenpatientname" parameterClass="string" resultMap="SpecimenpatientnameResult">SELECT BARCODE AS Barcode,PATIENTNAME AS Patientname,CREATEDATE AS Createdate,USEIMAGE AS Useimage,CAPTUREIMAGE AS CaptureimageFROM SPECIMENPATIENTNAME<dynamic prepend="WHERE"><isParameterPresent>BARCODE = #value#</isParameterPresent></dynamic></select><insert id="InsertSpecimenpatientname" parameterClass="Specimenpatientname">	INSERT INTO SPECIMENPATIENTNAME (BARCODE,PATIENTNAME,CREATEDATE,USEIMAGE,CAPTUREIMAGE) 	VALUES(#Barcode#,#Patientname#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Useimage#,#Captureimage#)</insert><update id="UpdateSpecimenpatientname" parameterClass="Specimenpatientname">UPDATE SPECIMENPATIENTNAME  SET BARCODE=#Barcode#,PATIENTNAME=#Patientname#,CREATEDATE=#Createdate#,USEIMAGE=#Useimage#,CAPTUREIMAGE=#Captureimage#WHERE BARCODE = #Barcode#</update><delete id="DeleteSpecimenpatientname" parameterClass="string">DELETE FROM SPECIMENPATIENTNAMEWHERE BARCODE = #value#</delete>
+</statements>
+</sqlMap>

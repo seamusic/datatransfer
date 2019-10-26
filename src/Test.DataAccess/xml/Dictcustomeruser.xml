@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcustomeruserMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcustomeruser"  type="Daan.DataTransfer.Test.Domain.Dictcustomeruser" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcustomeruserResult" class="Dictcustomeruser"><result property="Dictcustomeruserid" column="DICTCUSTOMERUSERID" type="single" dbType="Real"/><result property="Dictuserid" column="DICTUSERID" type="single" dbType="Real"/><result property="Dictcustomerid" column="DICTCUSTOMERID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcustomeruser" parameterClass="string" resultMap="DictcustomeruserResult">SELECT DICTCUSTOMERUSERID AS Dictcustomeruserid,DICTUSERID AS Dictuserid,DICTCUSTOMERID AS DictcustomeridFROM DICTCUSTOMERUSER<dynamic prepend="WHERE"><isParameterPresent>DICTCUSTOMERUSERID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictcustomeruser" parameterClass="Dictcustomeruser">	INSERT INTO DICTCUSTOMERUSER (DICTCUSTOMERUSERID,DICTUSERID,DICTCUSTOMERID) 	VALUES(#Dictcustomeruserid#,#Dictuserid#,#Dictcustomerid#)</insert><update id="UpdateDictcustomeruser" parameterClass="Dictcustomeruser">UPDATE DICTCUSTOMERUSER  SET DICTCUSTOMERUSERID=#Dictcustomeruserid#,DICTUSERID=#Dictuserid#,DICTCUSTOMERID=#Dictcustomerid#WHERE DICTCUSTOMERUSERID = #Dictcustomeruserid#</update><delete id="DeleteDictcustomeruser" parameterClass="string">DELETE FROM DICTCUSTOMERUSERWHERE DICTCUSTOMERUSERID = #value#</delete>
+</statements>
+</sqlMap>

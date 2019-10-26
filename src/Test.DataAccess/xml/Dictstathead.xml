@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictstatheadMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictstathead"  type="Daan.DataTransfer.Test.Domain.Dictstathead" />
+</alias>
+<resultMaps>
+		<resultMap id="DictstatheadResult" class="Dictstathead"><result property="Dictstatheadid" column="DICTSTATHEADID" type="single" dbType="Real"/><result property="Defaultorderby" column="DEFAULTORDERBY" type="string" dbType="varchar"/><result property="Defaultgroupby" column="DEFAULTGROUPBY" type="string" dbType="varchar"/><result property="Headtitle" column="HEADTITLE" type="string" dbType="varchar"/><result property="Defaultwhere" column="DEFAULTWHERE" type="string" dbType="varchar"/><result property="Headcode" column="HEADCODE" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/><result property="Codetemplate" column="CODETEMPLATE" type="string" dbType="varchar"/><result property="Sqlstring" column="SQLSTRING" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictstathead" parameterClass="string" resultMap="DictstatheadResult">SELECT DICTSTATHEADID AS Dictstatheadid,DEFAULTORDERBY AS Defaultorderby,DEFAULTGROUPBY AS Defaultgroupby,HEADTITLE AS Headtitle,DEFAULTWHERE AS Defaultwhere,HEADCODE AS Headcode,DISPLAYORDER AS Displayorder,CODETEMPLATE AS Codetemplate,SQLSTRING AS SqlstringFROM DICTSTATHEAD<dynamic prepend="WHERE"><isParameterPresent>DICTSTATHEADID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictstathead" parameterClass="Dictstathead">	INSERT INTO DICTSTATHEAD (DICTSTATHEADID,DEFAULTORDERBY,DEFAULTGROUPBY,HEADTITLE,DEFAULTWHERE,HEADCODE,DISPLAYORDER,CODETEMPLATE,SQLSTRING) 	VALUES(#Dictstatheadid#,#Defaultorderby#,#Defaultgroupby#,#Headtitle#,#Defaultwhere#,#Headcode#,#Displayorder#,#Codetemplate#,#Sqlstring#)</insert><update id="UpdateDictstathead" parameterClass="Dictstathead">UPDATE DICTSTATHEAD  SET DICTSTATHEADID=#Dictstatheadid#,DEFAULTORDERBY=#Defaultorderby#,DEFAULTGROUPBY=#Defaultgroupby#,HEADTITLE=#Headtitle#,DEFAULTWHERE=#Defaultwhere#,HEADCODE=#Headcode#,DISPLAYORDER=#Displayorder#,CODETEMPLATE=#Codetemplate#,SQLSTRING=#Sqlstring#WHERE DICTSTATHEADID = #Dictstatheadid#</update><delete id="DeleteDictstathead" parameterClass="string">DELETE FROM DICTSTATHEADWHERE DICTSTATHEADID = #value#</delete>
+</statements>
+</sqlMap>

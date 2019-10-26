@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55CDDF99-C99C-4C65-99C7-9C2DDCB6CA95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sofire.Serialization</RootNamespace>
+    <AssemblyName>Sofire.Serialization.v1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\Debug\Sofire.Serialization.v1.0.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\Release\Sofire.Serialization.v1.0.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\CommFloder\StrongName\SofireSuiteKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <HintPath>..\CommFloder\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BinarySuite\AssemblyInfo.cs" />
+    <Compile Include="BinarySuite\AssemblyInfoCollection.cs" />
+    <Compile Include="Serializers\FastBinarySerializer.cs" />
+    <Compile Include="BinarySuite\BinaryHelperBase.cs" />
+    <Compile Include="BinarySuite\BinaryReadHelper.cs" />
+    <Compile Include="BinarySuite\BinaryTag.cs" />
+    <Compile Include="BinarySuite\BinaryWriteHelper.cs" />
+    <Compile Include="BinarySuite\SerializableFieldInfo.cs" />
+    <Compile Include="BinarySuite\SerializationHelper.cs" />
+    <Compile Include="BinarySuite\TypeByteLength.cs" />
+    <Compile Include="FastJSON\Getters.cs" />
+    <Compile Include="FastJSON\JSON.cs" />
+    <Compile Include="FastJSON\JsonParser.cs" />
+    <Compile Include="FastJSON\JsonSerializer.cs" />
+    <Compile Include="FastJSON\SafeDictionary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializers\BinarySerializer.cs" />
+    <Compile Include="Serializers\IObjectSerializer.cs" />
+    <Compile Include="Serializers\JSONSerializer.cs" />
+    <Compile Include="Serializers\SerializerBase.cs" />
+    <Compile Include="Serializers\XmlSerializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sofire.Utils\Sofire.Utils.csproj">
+      <Project>{EA5CCE9F-C774-4318-BA51-DB76FE660E13}</Project>
+      <Name>Sofire.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

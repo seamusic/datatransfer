@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictinstrumenttestMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictinstrumenttest"  type="Daan.DataTransfer.Test.Domain.Dictinstrumenttest" />
+</alias>
+<resultMaps>
+		<resultMap id="DictinstrumenttestResult" class="Dictinstrumenttest"><result property="Dictinstrumenttestid" column="DICTINSTRUMENTTESTID" type="single" dbType="Real"/><result property="Dictinstrumentid" column="DICTINSTRUMENTID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Analyzercode" column="ANALYZERCODE" type="string" dbType="varchar"/><result property="Factor" column="FACTOR" type="single" dbType="Real"/><result property="Testtype" column="TESTTYPE" type="single" dbType="Real"/><result property="Isdilution" column="ISDILUTION" type="string" dbType="varchar"/><result property="Isqc" column="ISQC" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictinstrumenttest" parameterClass="string" resultMap="DictinstrumenttestResult">SELECT DICTINSTRUMENTTESTID AS Dictinstrumenttestid,DICTINSTRUMENTID AS Dictinstrumentid,DICTTESTITEMID AS Dicttestitemid,ANALYZERCODE AS Analyzercode,FACTOR AS Factor,TESTTYPE AS Testtype,ISDILUTION AS Isdilution,ISQC AS IsqcFROM DICTINSTRUMENTTEST<dynamic prepend="WHERE"><isParameterPresent>DICTINSTRUMENTTESTID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictinstrumenttest" parameterClass="Dictinstrumenttest">	INSERT INTO DICTINSTRUMENTTEST (DICTINSTRUMENTTESTID,DICTINSTRUMENTID,DICTTESTITEMID,ANALYZERCODE,FACTOR,TESTTYPE,ISDILUTION,ISQC) 	VALUES(#Dictinstrumenttestid#,#Dictinstrumentid#,#Dicttestitemid#,#Analyzercode#,#Factor#,#Testtype#,#Isdilution#,#Isqc#)</insert><update id="UpdateDictinstrumenttest" parameterClass="Dictinstrumenttest">UPDATE DICTINSTRUMENTTEST  SET DICTINSTRUMENTTESTID=#Dictinstrumenttestid#,DICTINSTRUMENTID=#Dictinstrumentid#,DICTTESTITEMID=#Dicttestitemid#,ANALYZERCODE=#Analyzercode#,FACTOR=#Factor#,TESTTYPE=#Testtype#,ISDILUTION=#Isdilution#,ISQC=#Isqc#WHERE DICTINSTRUMENTTESTID = #Dictinstrumenttestid#</update><delete id="DeleteDictinstrumenttest" parameterClass="string">DELETE FROM DICTINSTRUMENTTESTWHERE DICTINSTRUMENTTESTID = #value#</delete>
+</statements>
+</sqlMap>

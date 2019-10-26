@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcustomergrouppriceMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcustomergroupprice"  type="Daan.DataTransfer.Test.Domain.Dictcustomergroupprice" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcustomergrouppriceResult" class="Dictcustomergroupprice"><result property="Dictcustomergrouppriceid" column="DICTCUSTOMERGROUPPRICEID" type="single" dbType="Real"/><result property="Dictcustomergroupid" column="DICTCUSTOMERGROUPID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Groupprice" column="GROUPPRICE" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcustomergroupprice" parameterClass="string" resultMap="DictcustomergrouppriceResult">SELECT DICTCUSTOMERGROUPPRICEID AS Dictcustomergrouppriceid,DICTCUSTOMERGROUPID AS Dictcustomergroupid,DICTTESTITEMID AS Dicttestitemid,GROUPPRICE AS GrouppriceFROM DICTCUSTOMERGROUPPRICE<dynamic prepend="WHERE"><isParameterPresent>DICTCUSTOMERGROUPPRICEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictcustomergroupprice" parameterClass="Dictcustomergroupprice">	INSERT INTO DICTCUSTOMERGROUPPRICE (DICTCUSTOMERGROUPPRICEID,DICTCUSTOMERGROUPID,DICTTESTITEMID,GROUPPRICE) 	VALUES(#Dictcustomergrouppriceid#,#Dictcustomergroupid#,#Dicttestitemid#,#Groupprice#)</insert><update id="UpdateDictcustomergroupprice" parameterClass="Dictcustomergroupprice">UPDATE DICTCUSTOMERGROUPPRICE  SET DICTCUSTOMERGROUPPRICEID=#Dictcustomergrouppriceid#,DICTCUSTOMERGROUPID=#Dictcustomergroupid#,DICTTESTITEMID=#Dicttestitemid#,GROUPPRICE=#Groupprice#WHERE DICTCUSTOMERGROUPPRICEID = #Dictcustomergrouppriceid#</update><delete id="DeleteDictcustomergroupprice" parameterClass="string">DELETE FROM DICTCUSTOMERGROUPPRICEWHERE DICTCUSTOMERGROUPPRICEID = #value#</delete>
+</statements>
+</sqlMap>

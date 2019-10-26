@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictgroupsecurityMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictgroupsecurity"  type="Daan.DataTransfer.Test.Domain.Dictgroupsecurity" />
+</alias>
+<resultMaps>
+		<resultMap id="DictfastcommentResult" class="Dictgroupsecurity"><result property="Dictgroupsecurityid" column="DICTGROUPSECURITYID" type="single" dbType="Real"/><result property="Dictusergroupid" column="DICTUSERGROUPID" type="single" dbType="Real"/><result property="Dictsecurityresourceid" column="DICTSECURITYRESOURCEID" type="single" dbType="Real"/><result property="Ispermit" column="ISPERMIT" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictgroupsecurity" parameterClass="string" resultMap="DictfastcommentResult">SELECT DICTGROUPSECURITYID AS Dictgroupsecurityid,DICTUSERGROUPID AS Dictusergroupid,DICTSECURITYRESOURCEID AS Dictsecurityresourceid,ISPERMIT AS IspermitFROM DICTGROUPSECURITY<dynamic prepend="WHERE"><isParameterPresent>DICTGROUPSECURITYID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictgroupsecurity" parameterClass="Dictgroupsecurity">	INSERT INTO DICTGROUPSECURITY (DICTGROUPSECURITYID,DICTUSERGROUPID,DICTSECURITYRESOURCEID,ISPERMIT) 	VALUES(#Dictgroupsecurityid#,#Dictusergroupid#,#Dictsecurityresourceid#,#Ispermit#)</insert><update id="UpdateDictgroupsecurity" parameterClass="Dictgroupsecurity">UPDATE DICTGROUPSECURITY  SET DICTGROUPSECURITYID=#Dictgroupsecurityid#,DICTUSERGROUPID=#Dictusergroupid#,DICTSECURITYRESOURCEID=#Dictsecurityresourceid#,ISPERMIT=#Ispermit#WHERE DICTGROUPSECURITYID = #Dictgroupsecurityid#</update><delete id="DeleteDictgroupsecurity" parameterClass="string">DELETE FROM DICTGROUPSECURITYWHERE DICTGROUPSECURITYID = #value#</delete>
+</statements>
+</sqlMap>

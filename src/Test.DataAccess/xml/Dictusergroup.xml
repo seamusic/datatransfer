@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictusergroupMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictusergroup"  type="Daan.DataTransfer.Test.Domain.Dictusergroup" />
+</alias>
+<resultMaps>
+		<resultMap id="DictusergroupResult" class="Dictusergroup"><result property="Dictusergroupid" column="DICTUSERGROUPID" type="single" dbType="Real"/><result property="Groupcode" column="GROUPCODE" type="string" dbType="varchar"/><result property="Groupname" column="GROUPNAME" type="string" dbType="varchar"/><result property="Groupnote" column="GROUPNOTE" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictusergroup" parameterClass="string" resultMap="DictusergroupResult">SELECT DICTUSERGROUPID AS Dictusergroupid,GROUPCODE AS Groupcode,GROUPNAME AS Groupname,GROUPNOTE AS Groupnote,ACTIVE AS ActiveFROM DICTUSERGROUP<dynamic prepend="WHERE"><isParameterPresent>DICTUSERGROUPID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictusergroup" parameterClass="Dictusergroup">	INSERT INTO DICTUSERGROUP (DICTUSERGROUPID,GROUPCODE,GROUPNAME,GROUPNOTE,ACTIVE) 	VALUES(#Dictusergroupid#,#Groupcode#,#Groupname#,#Groupnote#,#Active#)</insert><update id="UpdateDictusergroup" parameterClass="Dictusergroup">UPDATE DICTUSERGROUP  SET DICTUSERGROUPID=#Dictusergroupid#,GROUPCODE=#Groupcode#,GROUPNAME=#Groupname#,GROUPNOTE=#Groupnote#,ACTIVE=#Active#WHERE DICTUSERGROUPID = #Dictusergroupid#</update><delete id="DeleteDictusergroup" parameterClass="string">DELETE FROM DICTUSERGROUPWHERE DICTUSERGROUPID = #value#</delete>
+</statements>
+</sqlMap>

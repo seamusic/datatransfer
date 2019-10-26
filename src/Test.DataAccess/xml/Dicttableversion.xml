@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DicttableversionMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dicttableversion"  type="Daan.DataTransfer.Test.Domain.Dicttableversion" />
+</alias>
+<resultMaps>
+		<resultMap id="DicttableversionResult" class="Dicttableversion"><result property="Dicttableversionid" column="DICTTABLEVERSIONID" type="single" dbType="Real"/><result property="Tablename" column="TABLENAME" type="string" dbType="varchar"/><result property="Versioncount" column="VERSIONCOUNT" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	
+<select id="SelectDicttableversion" parameterClass="string" resultMap="DicttableversionResult">
+SELECT DICTTABLEVERSIONID AS Dicttableversionid,TABLENAME AS Tablename,VERSIONCOUNT AS Versioncount
+FROM DICTTABLEVERSION
+<dynamic prepend="WHERE">
+<isParameterPresent>DICTTABLEVERSIONID = #value#
+</isParameterPresent>
+</dynamic>
+</select>
+<insert id="InsertDicttableversion" parameterClass="Dicttableversion">
+	INSERT INTO DICTTABLEVERSION 
+(DICTTABLEVERSIONID,TABLENAME,VERSIONCOUNT) 
+	VALUES(#Dicttableversionid#,#Tablename#,#Versioncount#)
+</insert>
+<update id="UpdateDicttableversion" parameterClass="Dicttableversion">
+UPDATE DICTTABLEVERSION 
+ SET DICTTABLEVERSIONID=#Dicttableversionid#,TABLENAME=#Tablename#,VERSIONCOUNT=#Versioncount#
+WHERE DICTTABLEVERSIONID = #Dicttableversionid#
+</update>
+<delete id="DeleteDicttableversion" parameterClass="string">
+DELETE FROM DICTTABLEVERSION
+WHERE DICTTABLEVERSIONID = #value#
+</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcustomerdiscountMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcustomerdiscount"  type="Daan.DataTransfer.Test.Domain.Dictcustomerdiscount" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcustomerdiscountResult" class="Dictcustomerdiscount"><result property="Dictcustomerdiscountid" column="DICTCUSTOMERDISCOUNTID" type="single" dbType="Real"/><result property="Dictcustomerid" column="DICTCUSTOMERID" type="single" dbType="Real"/><result property="Discount" column="DISCOUNT" type="single" dbType="Real"/><result property="Begindate" column="BEGINDATE" type="DateTime" dbType="DateTime"/><result property="Enddate" column="ENDDATE" type="DateTime" dbType="DateTime"/><result property="Updateby" column="UPDATEBY" type="single" dbType="Real"/><result property="Updatedate" column="UPDATEDATE" type="DateTime" dbType="DateTime"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcustomerdiscount" parameterClass="string" resultMap="DictcustomerdiscountResult">SELECT DICTCUSTOMERDISCOUNTID AS Dictcustomerdiscountid,DICTCUSTOMERID AS Dictcustomerid,DISCOUNT AS Discount,BEGINDATE AS Begindate,ENDDATE AS Enddate,UPDATEBY AS Updateby,UPDATEDATE AS UpdatedateFROM DICTCUSTOMERDISCOUNT<dynamic prepend="WHERE"><isParameterPresent>DICTCUSTOMERDISCOUNTID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictcustomerdiscount" parameterClass="Dictcustomerdiscount">	INSERT INTO DICTCUSTOMERDISCOUNT (DICTCUSTOMERDISCOUNTID,DICTCUSTOMERID,DISCOUNT,BEGINDATE,ENDDATE,UPDATEBY,UPDATEDATE) 	VALUES(#Dictcustomerdiscountid#,#Dictcustomerid#,#Discount#,#Begindate:DateTime:1/1/0001 12:00:00 AM#,#Enddate:DateTime:1/1/0001 12:00:00 AM#,#Updateby#,#Updatedate:DateTime:1/1/0001 12:00:00 AM#)</insert><update id="UpdateDictcustomerdiscount" parameterClass="Dictcustomerdiscount">UPDATE DICTCUSTOMERDISCOUNT  SET DICTCUSTOMERDISCOUNTID=#Dictcustomerdiscountid#,DICTCUSTOMERID=#Dictcustomerid#,DISCOUNT=#Discount#,BEGINDATE=#Begindate#,ENDDATE=#Enddate#,UPDATEBY=#Updateby#,UPDATEDATE=#Updatedate#WHERE DICTCUSTOMERDISCOUNTID = #Dictcustomerdiscountid#</update><delete id="DeleteDictcustomerdiscount" parameterClass="string">DELETE FROM DICTCUSTOMERDISCOUNTWHERE DICTCUSTOMERDISCOUNTID = #value#</delete>
+</statements>
+</sqlMap>

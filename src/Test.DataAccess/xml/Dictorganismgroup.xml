@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictorganismgroupMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictorganismgroup"  type="Daan.DataTransfer.Test.Domain.Dictorganismgroup" />
+</alias>
+<resultMaps>
+		<resultMap id="DictorganismgroupResult" class="Dictorganismgroup"><result property="Dictorganismgroupid" column="DICTORGANISMGROUPID" type="single" dbType="Real"/><result property="Organismgroupcode" column="ORGANISMGROUPCODE" type="string" dbType="varchar"/><result property="Organismgroupname" column="ORGANISMGROUPNAME" type="string" dbType="varchar"/><result property="Dictantibioticgroupid" column="DICTANTIBIOTICGROUPID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictorganismgroup" parameterClass="string" resultMap="DictorganismgroupResult">SELECT DICTORGANISMGROUPID AS Dictorganismgroupid,ORGANISMGROUPCODE AS Organismgroupcode,ORGANISMGROUPNAME AS Organismgroupname,DICTANTIBIOTICGROUPID AS DictantibioticgroupidFROM DICTORGANISMGROUP<dynamic prepend="WHERE"><isParameterPresent>DICTORGANISMGROUPID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictorganismgroup" parameterClass="Dictorganismgroup">	INSERT INTO DICTORGANISMGROUP (DICTORGANISMGROUPID,ORGANISMGROUPCODE,ORGANISMGROUPNAME,DICTANTIBIOTICGROUPID) 	VALUES(#Dictorganismgroupid#,#Organismgroupcode#,#Organismgroupname#,#Dictantibioticgroupid#)</insert><update id="UpdateDictorganismgroup" parameterClass="Dictorganismgroup">UPDATE DICTORGANISMGROUP  SET DICTORGANISMGROUPID=#Dictorganismgroupid#,ORGANISMGROUPCODE=#Organismgroupcode#,ORGANISMGROUPNAME=#Organismgroupname#,DICTANTIBIOTICGROUPID=#Dictantibioticgroupid#WHERE DICTORGANISMGROUPID = #Dictorganismgroupid#</update><delete id="DeleteDictorganismgroup" parameterClass="string">DELETE FROM DICTORGANISMGROUPWHERE DICTORGANISMGROUPID = #value#</delete>
+</statements>
+</sqlMap>

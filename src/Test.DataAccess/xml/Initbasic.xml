@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InitbasicMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Initbasic"  type="Daan.DataTransfer.Test.Domain.Initbasic" />
+</alias>
+<resultMaps>
+		<resultMap id="InitbasicResult" class="Initbasic">
+      <result property="Basicid" column="BASICID" type="single" dbType="Real"/>
+      <result property="Basictype" column="BASICTYPE" type="string" dbType="varchar"/>
+      <result property="Basicvalue" column="BASICVALUE" type="string" dbType="varchar"/>
+      <result property="Basicname" column="BASICNAME" type="string" dbType="varchar"/>
+      <result property="Remark" column="REMARK" type="string" dbType="varchar"/>
+      <result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/>
+    </resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectInitbasic" parameterClass="string" resultMap="InitbasicResult">SELECT BASICID AS Basicid,BASICTYPE AS Basictype,BASICVALUE AS Basicvalue,BASICNAME AS Basicname,REMARK AS Remark,FASTCODE AS FastcodeFROM INITBASIC<dynamic prepend="WHERE"><isParameterPresent>BASICID = #value#</isParameterPresent></dynamic></select><insert id="InsertInitbasic" parameterClass="Initbasic">	INSERT INTO INITBASIC (BASICID,BASICTYPE,BASICVALUE,BASICNAME,REMARK,FASTCODE) 	VALUES(#Basicid#,#Basictype#,#Basicvalue#,#Basicname#,#Remark#,#Fastcode#)</insert><update id="UpdateInitbasic" parameterClass="Initbasic">UPDATE INITBASIC  SET BASICID=#Basicid#,BASICTYPE=#Basictype#,BASICVALUE=#Basicvalue#,BASICNAME=#Basicname#,REMARK=#Remark#,FASTCODE=#Fastcode#WHERE BASICID = #Basicid#</update><delete id="DeleteInitbasic" parameterClass="string">DELETE FROM INITBASICWHERE BASICID = #value#</delete>
+</statements>
+</sqlMap>

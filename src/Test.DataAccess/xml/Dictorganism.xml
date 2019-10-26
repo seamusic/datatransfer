@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictorganismMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictorganism"  type="Daan.DataTransfer.Test.Domain.Dictorganism" />
+</alias>
+<resultMaps>
+		<resultMap id="DictorganismResult" class="Dictorganism"><result property="Dictorganismid" column="DICTORGANISMID" type="single" dbType="Real"/><result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/><result property="Organismcode" column="ORGANISMCODE" type="string" dbType="varchar"/><result property="Organismename" column="ORGANISMENAME" type="string" dbType="varchar"/><result property="Organismcname" column="ORGANISMCNAME" type="string" dbType="varchar"/><result property="Dictorganismgroupid" column="DICTORGANISMGROUPID" type="single" dbType="Real"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictorganism" parameterClass="string" resultMap="DictorganismResult">SELECT DICTORGANISMID AS Dictorganismid,FASTCODE AS Fastcode,ORGANISMCODE AS Organismcode,ORGANISMENAME AS Organismename,ORGANISMCNAME AS Organismcname,DICTORGANISMGROUPID AS Dictorganismgroupid,ACTIVE AS ActiveFROM DICTORGANISM<dynamic prepend="WHERE"><isParameterPresent>DICTORGANISMID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictorganism" parameterClass="Dictorganism">	INSERT INTO DICTORGANISM (DICTORGANISMID,FASTCODE,ORGANISMCODE,ORGANISMENAME,ORGANISMCNAME,DICTORGANISMGROUPID,ACTIVE) 	VALUES(#Dictorganismid#,#Fastcode#,#Organismcode#,#Organismename#,#Organismcname#,#Dictorganismgroupid#,#Active#)</insert><update id="UpdateDictorganism" parameterClass="Dictorganism">UPDATE DICTORGANISM  SET DICTORGANISMID=#Dictorganismid#,FASTCODE=#Fastcode#,ORGANISMCODE=#Organismcode#,ORGANISMENAME=#Organismename#,ORGANISMCNAME=#Organismcname#,DICTORGANISMGROUPID=#Dictorganismgroupid#,ACTIVE=#Active#WHERE DICTORGANISMID = #Dictorganismid#</update><delete id="DeleteDictorganism" parameterClass="string">DELETE FROM DICTORGANISMWHERE DICTORGANISMID = #value#</delete>
+</statements>
+</sqlMap>

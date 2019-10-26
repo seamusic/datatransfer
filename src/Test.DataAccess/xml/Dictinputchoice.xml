@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictinputchoiceMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictinputchoice"  type="Daan.DataTransfer.Test.Domain.Dictinputchoice" />
+</alias>
+<resultMaps>
+		<resultMap id="DictinputchoiceResult" class="Dictinputchoice"><result property="Dictinputchoiceid" column="DICTINPUTCHOICEID" type="single" dbType="Real"/><result property="Dictinputtemplateitemid" column="DICTINPUTTEMPLATEITEMID" type="single" dbType="Real"/><result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/><result property="Itemname" column="ITEMNAME" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictinputchoice" parameterClass="string" resultMap="DictinputchoiceResult">SELECT DICTINPUTCHOICEID AS Dictinputchoiceid,DICTINPUTTEMPLATEITEMID AS Dictinputtemplateitemid,FASTCODE AS Fastcode,ITEMNAME AS Itemname,DISPLAYORDER AS DisplayorderFROM DICTINPUTCHOICE<dynamic prepend="WHERE"><isParameterPresent>DICTINPUTCHOICEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictinputchoice" parameterClass="Dictinputchoice">	INSERT INTO DICTINPUTCHOICE (DICTINPUTCHOICEID,DICTINPUTTEMPLATEITEMID,FASTCODE,ITEMNAME,DISPLAYORDER) 	VALUES(#Dictinputchoiceid#,#Dictinputtemplateitemid#,#Fastcode#,#Itemname#,#Displayorder#)</insert><update id="UpdateDictinputchoice" parameterClass="Dictinputchoice">UPDATE DICTINPUTCHOICE  SET DICTINPUTCHOICEID=#Dictinputchoiceid#,DICTINPUTTEMPLATEITEMID=#Dictinputtemplateitemid#,FASTCODE=#Fastcode#,ITEMNAME=#Itemname#,DISPLAYORDER=#Displayorder#WHERE DICTINPUTCHOICEID = #Dictinputchoiceid#</update><delete id="DeleteDictinputchoice" parameterClass="string">DELETE FROM DICTINPUTCHOICEWHERE DICTINPUTCHOICEID = #value#</delete>
+</statements>
+</sqlMap>

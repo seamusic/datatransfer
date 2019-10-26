@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictqclotcenterMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictqclotcenter"  type="Daan.DataTransfer.Test.Domain.Dictqclotcenter" />
+</alias>
+<resultMaps>
+		<resultMap id="DictqclotResult" class="Dictqclotcenter"><result property="Dictqclotid" column="DICTQCLOTID" type="single" dbType="Real"/><result property="Lotnum" column="LOTNUM" type="string" dbType="varchar"/><result property="Dictqccontrolid" column="DICTQCCONTROLID" type="single" dbType="Real"/><result property="Uniqueid" column="UNIQUEID" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictqclotcenter" parameterClass="string" resultMap="DictqclotResult">SELECT DICTQCLOTID AS Dictqclotid,LOTNUM AS Lotnum,DICTQCCONTROLID AS Dictqccontrolid,UNIQUEID AS UniqueidFROM DICTQCLOTCENTER</select><insert id="InsertDictqclotcenter" parameterClass="Dictqclotcenter">	INSERT INTO DICTQCLOTCENTER (DICTQCLOTID,LOTNUM,DICTQCCONTROLID,UNIQUEID) 	VALUES(#Dictqclotid#,#Lotnum#,#Dictqccontrolid#,#Uniqueid#)</insert><update id="UpdateDictqclotcenter" parameterClass="Dictqclotcenter">UPDATE DICTQCLOTCENTER  SET DICTQCLOTID=#Dictqclotid#,LOTNUM=#Lotnum#,DICTQCCONTROLID=#Dictqccontrolid#,UNIQUEID=#Uniqueid#</update><delete id="DeleteDictqclotcenter" parameterClass="string">DELETE FROM DICTQCLOTCENTER</delete>
+</statements>
+</sqlMap>

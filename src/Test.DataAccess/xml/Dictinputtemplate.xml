@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictinputtemplateMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictinputtemplate"  type="Daan.DataTransfer.Test.Domain.Dictinputtemplate" />
+</alias>
+<resultMaps>
+		<resultMap id="DictinputtemplateResult" class="Dictinputtemplate"><result property="Dictinputtemplateid" column="DICTINPUTTEMPLATEID" type="single" dbType="Real"/><result property="Templatename" column="TEMPLATENAME" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/><result property="Uniqueid" column="UNIQUEID" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictinputtemplate" parameterClass="string" resultMap="DictinputtemplateResult">SELECT DICTINPUTTEMPLATEID AS Dictinputtemplateid,TEMPLATENAME AS Templatename,DISPLAYORDER AS Displayorder,ACTIVE AS Active,UNIQUEID AS UniqueidFROM DICTINPUTTEMPLATE<dynamic prepend="WHERE"><isParameterPresent>DICTINPUTTEMPLATEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictinputtemplate" parameterClass="Dictinputtemplate">	INSERT INTO DICTINPUTTEMPLATE (DICTINPUTTEMPLATEID,TEMPLATENAME,DISPLAYORDER,ACTIVE,UNIQUEID) 	VALUES(#Dictinputtemplateid#,#Templatename#,#Displayorder#,#Active#,#Uniqueid#)</insert><update id="UpdateDictinputtemplate" parameterClass="Dictinputtemplate">UPDATE DICTINPUTTEMPLATE  SET DICTINPUTTEMPLATEID=#Dictinputtemplateid#,TEMPLATENAME=#Templatename#,DISPLAYORDER=#Displayorder#,ACTIVE=#Active#,UNIQUEID=#Uniqueid#WHERE DICTINPUTTEMPLATEID = #Dictinputtemplateid#</update><delete id="DeleteDictinputtemplate" parameterClass="string">DELETE FROM DICTINPUTTEMPLATEWHERE DICTINPUTTEMPLATEID = #value#</delete>
+</statements>
+</sqlMap>

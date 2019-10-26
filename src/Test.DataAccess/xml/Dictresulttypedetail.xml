@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictresulttypedetailMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictresulttypedetail"  type="Daan.DataTransfer.Test.Domain.Dictresulttypedetail" />
+</alias>
+<resultMaps>
+		<resultMap id="DictresulttypedetailResult" class="Dictresulttypedetail"><result property="Dictresulttypedetailid" column="DICTRESULTTYPEDETAILID" type="single" dbType="Real"/><result property="Resulttypeid" column="RESULTTYPEID" type="single" dbType="Real"/><result property="Fastcode" column="FASTCODE" type="string" dbType="varchar"/><result property="Resultdesc" column="RESULTDESC" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictresulttypedetail" parameterClass="string" resultMap="DictresulttypedetailResult">SELECT DICTRESULTTYPEDETAILID AS Dictresulttypedetailid,RESULTTYPEID AS Resulttypeid,FASTCODE AS Fastcode,RESULTDESC AS Resultdesc,DISPLAYORDER AS DisplayorderFROM DICTRESULTTYPEDETAIL<dynamic prepend="WHERE"><isParameterPresent>DICTRESULTTYPEDETAILID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictresulttypedetail" parameterClass="Dictresulttypedetail">	INSERT INTO DICTRESULTTYPEDETAIL (DICTRESULTTYPEDETAILID,RESULTTYPEID,FASTCODE,RESULTDESC,DISPLAYORDER) 	VALUES(#Dictresulttypedetailid#,#Resulttypeid#,#Fastcode#,#Resultdesc#,#Displayorder#)</insert><update id="UpdateDictresulttypedetail" parameterClass="Dictresulttypedetail">UPDATE DICTRESULTTYPEDETAIL  SET DICTRESULTTYPEDETAILID=#Dictresulttypedetailid#,RESULTTYPEID=#Resulttypeid#,FASTCODE=#Fastcode#,RESULTDESC=#Resultdesc#,DISPLAYORDER=#Displayorder#WHERE DICTRESULTTYPEDETAILID = #Dictresulttypedetailid#</update><delete id="DeleteDictresulttypedetail" parameterClass="string">DELETE FROM DICTRESULTTYPEDETAILWHERE DICTRESULTTYPEDETAILID = #value#</delete>
+</statements>
+</sqlMap>

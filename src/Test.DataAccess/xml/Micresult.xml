@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MicresultMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Micresult"  type="Daan.DataTransfer.Test.Domain.Micresult" />
+</alias>
+<resultMaps>
+		<resultMap id="MicresultResult" class="Micresult"><result property="Subbarcode" column="SUBBARCODE" type="string" dbType="varchar"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Result" column="RESULT" type="string" dbType="varchar"/><result property="Displayorder" column="DISPLAYORDER" type="single" dbType="Real"/><result property="Resultcomment" column="RESULTCOMMENT" type="string" dbType="varchar"/><result property="Seq" column="SEQ" type="string" dbType="varchar"/><result property="Resulttype" column="RESULTTYPE" type="string" dbType="varchar"/><result property="Status" column="STATUS" type="string" dbType="varchar"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Dictinstrumentid" column="DICTINSTRUMENTID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectMicresult" parameterClass="string" resultMap="MicresultResult">SELECT SUBBARCODE AS Subbarcode,DICTTESTITEMID AS Dicttestitemid,RESULT AS Result,DISPLAYORDER AS Displayorder,RESULTCOMMENT AS Resultcomment,SEQ AS Seq,RESULTTYPE AS Resulttype,STATUS AS Status,CREATEDATE AS Createdate,DICTINSTRUMENTID AS DictinstrumentidFROM MICRESULT<dynamic prepend="WHERE"><isParameterPresent>SUBBARCODE = #value#</isParameterPresent></dynamic></select><insert id="InsertMicresult" parameterClass="Micresult">	INSERT INTO MICRESULT (SUBBARCODE,DICTTESTITEMID,RESULT,DISPLAYORDER,RESULTCOMMENT,SEQ,RESULTTYPE,STATUS,CREATEDATE,DICTINSTRUMENTID) 	VALUES(#Subbarcode#,#Dicttestitemid#,#Result#,#Displayorder#,#Resultcomment#,#Seq#,#Resulttype#,#Status#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Dictinstrumentid#)</insert><update id="UpdateMicresult" parameterClass="Micresult">UPDATE MICRESULT  SET SUBBARCODE=#Subbarcode#,DICTTESTITEMID=#Dicttestitemid#,RESULT=#Result#,DISPLAYORDER=#Displayorder#,RESULTCOMMENT=#Resultcomment#,SEQ=#Seq#,RESULTTYPE=#Resulttype#,STATUS=#Status#,CREATEDATE=#Createdate#,DICTINSTRUMENTID=#Dictinstrumentid#WHERE SUBBARCODE = #Subbarcode#</update><delete id="DeleteMicresult" parameterClass="string">DELETE FROM MICRESULTWHERE SUBBARCODE = #value#</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InstrumenttempresultMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Instrumenttempresult"  type="Daan.DataTransfer.Test.Domain.Instrumenttempresult" />
+</alias>
+<resultMaps>
+		<resultMap id="InstrumenttempresultResult" class="Instrumenttempresult"><result property="Souid" column="SOUID" type="single" dbType="Real"/><result property="Deviceid" column="DEVICEID" type="single" dbType="Real"/><result property="Soufull" column="SOUFULL" type="string" dbType="varchar"/><result property="Soufull2" column="SOUFULL2" type="string" dbType="varchar"/><result property="Soufull3" column="SOUFULL3" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectInstrumenttempresult" parameterClass="string" resultMap="InstrumenttempresultResult">SELECT SOUID AS Souid,DEVICEID AS Deviceid,SOUFULL AS Soufull,SOUFULL2 AS Soufull2,SOUFULL3 AS Soufull3FROM INSTRUMENTTEMPRESULT<dynamic prepend="WHERE"><isParameterPresent>SOUID = #value#</isParameterPresent></dynamic></select><insert id="InsertInstrumenttempresult" parameterClass="Instrumenttempresult">	INSERT INTO INSTRUMENTTEMPRESULT (SOUID,DEVICEID,SOUFULL,SOUFULL2,SOUFULL3) 	VALUES(#Souid#,#Deviceid#,#Soufull#,#Soufull2#,#Soufull3#)</insert><update id="UpdateInstrumenttempresult" parameterClass="Instrumenttempresult">UPDATE INSTRUMENTTEMPRESULT  SET SOUID=#Souid#,DEVICEID=#Deviceid#,SOUFULL=#Soufull#,SOUFULL2=#Soufull2#,SOUFULL3=#Soufull3#WHERE SOUID = #Souid#</update><delete id="DeleteInstrumenttempresult" parameterClass="string">DELETE FROM INSTRUMENTTEMPRESULTWHERE SOUID = #value#</delete>
+</statements>
+</sqlMap>

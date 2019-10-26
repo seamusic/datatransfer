@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictdrawertypeMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictdrawertype"  type="Daan.DataTransfer.Test.Domain.Dictdrawertype" />
+</alias>
+<resultMaps>
+		<resultMap id="DictdrawertypeResult" class="Dictdrawertype"><result property="Dictdrawertypeid" column="DICTDRAWERTYPEID" type="single" dbType="Real"/><result property="Typecode" column="TYPECODE" type="string" dbType="varchar"/><result property="Typename" column="TYPENAME" type="string" dbType="varchar"/><result property="Batchs" column="BATCHS" type="single" dbType="Real"/><result property="Batchcount" column="BATCHCOUNT" type="single" dbType="Real"/><result property="Remark" column="REMARK" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictdrawertype" parameterClass="string" resultMap="DictdrawertypeResult">SELECT DICTDRAWERTYPEID AS Dictdrawertypeid,TYPECODE AS Typecode,TYPENAME AS Typename,BATCHS AS Batchs,BATCHCOUNT AS Batchcount,REMARK AS Remark,ACTIVE AS ActiveFROM DICTDRAWERTYPE<dynamic prepend="WHERE"><isParameterPresent>DICTDRAWERTYPEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictdrawertype" parameterClass="Dictdrawertype">	INSERT INTO DICTDRAWERTYPE (DICTDRAWERTYPEID,TYPECODE,TYPENAME,BATCHS,BATCHCOUNT,REMARK,ACTIVE) 	VALUES(#Dictdrawertypeid#,#Typecode#,#Typename#,#Batchs#,#Batchcount#,#Remark#,#Active#)</insert><update id="UpdateDictdrawertype" parameterClass="Dictdrawertype">UPDATE DICTDRAWERTYPE  SET DICTDRAWERTYPEID=#Dictdrawertypeid#,TYPECODE=#Typecode#,TYPENAME=#Typename#,BATCHS=#Batchs#,BATCHCOUNT=#Batchcount#,REMARK=#Remark#,ACTIVE=#Active#WHERE DICTDRAWERTYPEID = #Dictdrawertypeid#</update><delete id="DeleteDictdrawertype" parameterClass="string">DELETE FROM DICTDRAWERTYPEWHERE DICTDRAWERTYPEID = #value#</delete>
+</statements>
+</sqlMap>

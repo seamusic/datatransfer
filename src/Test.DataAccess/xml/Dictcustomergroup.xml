@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictcustomergroupMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictcustomergroup"  type="Daan.DataTransfer.Test.Domain.Dictcustomergroup" />
+</alias>
+<resultMaps>
+		<resultMap id="DictcustomergroupResult" class="Dictcustomergroup"><result property="Dictcustomergroupid" column="DICTCUSTOMERGROUPID" type="single" dbType="Real"/><result property="Groupcode" column="GROUPCODE" type="string" dbType="varchar"/><result property="Groupname" column="GROUPNAME" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictcustomergroup" parameterClass="string" resultMap="DictcustomergroupResult">SELECT DICTCUSTOMERGROUPID AS Dictcustomergroupid,GROUPCODE AS Groupcode,GROUPNAME AS GroupnameFROM DICTCUSTOMERGROUP<dynamic prepend="WHERE"><isParameterPresent>DICTCUSTOMERGROUPID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictcustomergroup" parameterClass="Dictcustomergroup">	INSERT INTO DICTCUSTOMERGROUP (DICTCUSTOMERGROUPID,GROUPCODE,GROUPNAME) 	VALUES(#Dictcustomergroupid#,#Groupcode#,#Groupname#)</insert><update id="UpdateDictcustomergroup" parameterClass="Dictcustomergroup">UPDATE DICTCUSTOMERGROUP  SET DICTCUSTOMERGROUPID=#Dictcustomergroupid#,GROUPCODE=#Groupcode#,GROUPNAME=#Groupname#WHERE DICTCUSTOMERGROUPID = #Dictcustomergroupid#</update><delete id="DeleteDictcustomergroup" parameterClass="string">DELETE FROM DICTCUSTOMERGROUPWHERE DICTCUSTOMERGROUPID = #value#</delete>
+</statements>
+</sqlMap>

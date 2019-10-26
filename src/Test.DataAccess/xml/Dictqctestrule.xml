@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictqctestruleMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictqctestrule"  type="Daan.DataTransfer.Test.Domain.Dictqctestrule" />
+</alias>
+<resultMaps>
+		<resultMap id="DictqctestruleResult" class="Dictqctestrule"><result property="Dictqctestruleid" column="DICTQCTESTRULEID" type="single" dbType="Real"/><result property="Dictinstrumentid" column="DICTINSTRUMENTID" type="single" dbType="Real"/><result property="Dicttestitemid" column="DICTTESTITEMID" type="single" dbType="Real"/><result property="Dictqcruleid" column="DICTQCRULEID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictqctestrule" parameterClass="string" resultMap="DictqctestruleResult">SELECT DICTQCTESTRULEID AS Dictqctestruleid,DICTINSTRUMENTID AS Dictinstrumentid,DICTTESTITEMID AS Dicttestitemid,DICTQCRULEID AS DictqcruleidFROM DICTQCTESTRULE<dynamic prepend="WHERE"><isParameterPresent>DICTQCTESTRULEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictqctestrule" parameterClass="Dictqctestrule">	INSERT INTO DICTQCTESTRULE (DICTQCTESTRULEID,DICTINSTRUMENTID,DICTTESTITEMID,DICTQCRULEID) 	VALUES(#Dictqctestruleid#,#Dictinstrumentid#,#Dicttestitemid#,#Dictqcruleid#)</insert><update id="UpdateDictqctestrule" parameterClass="Dictqctestrule">UPDATE DICTQCTESTRULE  SET DICTQCTESTRULEID=#Dictqctestruleid#,DICTINSTRUMENTID=#Dictinstrumentid#,DICTTESTITEMID=#Dicttestitemid#,DICTQCRULEID=#Dictqcruleid#WHERE DICTQCTESTRULEID = #Dictqctestruleid#</update><delete id="DeleteDictqctestrule" parameterClass="string">DELETE FROM DICTQCTESTRULEWHERE DICTQCTESTRULEID = #value#</delete>
+</statements>
+</sqlMap>

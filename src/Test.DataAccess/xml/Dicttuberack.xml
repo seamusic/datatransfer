@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DicttuberackMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dicttuberack"  type="Daan.DataTransfer.Test.Domain.Dicttuberack" />
+</alias>
+<resultMaps>
+		<resultMap id="DicttuberackResult" class="Dicttuberack"><result property="Dicttuberackid" column="DICTTUBERACKID" type="single" dbType="Real"/><result property="Xrows" column="XROWS" type="single" dbType="Real"/><result property="Ycols" column="YCOLS" type="single" dbType="Real"/><result property="Totalcount" column="TOTALCOUNT" type="single" dbType="Real"/><result property="Typename" column="TYPENAME" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDicttuberack" parameterClass="string" resultMap="DicttuberackResult">SELECT DICTTUBERACKID AS Dicttuberackid,XROWS AS Xrows,YCOLS AS Ycols,TOTALCOUNT AS Totalcount,TYPENAME AS TypenameFROM DICTTUBERACK<dynamic prepend="WHERE"><isParameterPresent>DICTTUBERACKID = #value#</isParameterPresent></dynamic></select><insert id="InsertDicttuberack" parameterClass="Dicttuberack">	INSERT INTO DICTTUBERACK (DICTTUBERACKID,XROWS,YCOLS,TOTALCOUNT,TYPENAME) 	VALUES(#Dicttuberackid#,#Xrows#,#Ycols#,#Totalcount#,#Typename#)</insert><update id="UpdateDicttuberack" parameterClass="Dicttuberack">UPDATE DICTTUBERACK  SET DICTTUBERACKID=#Dicttuberackid#,XROWS=#Xrows#,YCOLS=#Ycols#,TOTALCOUNT=#Totalcount#,TYPENAME=#Typename#WHERE DICTTUBERACKID = #Dicttuberackid#</update><delete id="DeleteDicttuberack" parameterClass="string">DELETE FROM DICTTUBERACKWHERE DICTTUBERACKID = #value#</delete>
+</statements>
+</sqlMap>

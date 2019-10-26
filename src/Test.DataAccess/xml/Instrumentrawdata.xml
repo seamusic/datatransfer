@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InstrumentrawdataMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Instrumentrawdata"  type="Daan.DataTransfer.Test.Domain.Instrumentrawdata" />
+</alias>
+<resultMaps>
+		<resultMap id="InstrumentrawdataResult" class="Instrumentrawdata"><result property="Instrumentrawdataid" column="INSTRUMENTRAWDATAID" type="single" dbType="Real"/><result property="Dictinstrumentid" column="DICTINSTRUMENTID" type="single" dbType="Real"/><result property="Rawdata" column="RAWDATA" type="string" dbType="varchar"/><result property="Createdate" column="CREATEDATE" type="DateTime" dbType="DateTime"/><result property="Status" column="STATUS" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectInstrumentrawdata" parameterClass="string" resultMap="InstrumentrawdataResult">SELECT INSTRUMENTRAWDATAID AS Instrumentrawdataid,DICTINSTRUMENTID AS Dictinstrumentid,RAWDATA AS Rawdata,CREATEDATE AS Createdate,STATUS AS StatusFROM INSTRUMENTRAWDATA<dynamic prepend="WHERE"><isParameterPresent>INSTRUMENTRAWDATAID = #value#</isParameterPresent></dynamic></select><insert id="InsertInstrumentrawdata" parameterClass="Instrumentrawdata">	INSERT INTO INSTRUMENTRAWDATA (INSTRUMENTRAWDATAID,DICTINSTRUMENTID,RAWDATA,CREATEDATE,STATUS) 	VALUES(#Instrumentrawdataid#,#Dictinstrumentid#,#Rawdata#,#Createdate:DateTime:1/1/0001 12:00:00 AM#,#Status#)</insert><update id="UpdateInstrumentrawdata" parameterClass="Instrumentrawdata">UPDATE INSTRUMENTRAWDATA  SET INSTRUMENTRAWDATAID=#Instrumentrawdataid#,DICTINSTRUMENTID=#Dictinstrumentid#,RAWDATA=#Rawdata#,CREATEDATE=#Createdate#,STATUS=#Status#WHERE INSTRUMENTRAWDATAID = #Instrumentrawdataid#</update><delete id="DeleteInstrumentrawdata" parameterClass="string">DELETE FROM INSTRUMENTRAWDATAWHERE INSTRUMENTRAWDATAID = #value#</delete>
+</statements>
+</sqlMap>

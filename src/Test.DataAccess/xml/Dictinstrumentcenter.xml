@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictinstrumentcenterMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictinstrumentcenter"  type="Daan.DataTransfer.Test.Domain.Dictinstrumentcenter" />
+</alias>
+<resultMaps>
+		<resultMap id="DictinstrumentcenterResult" class="Dictinstrumentcenter"><result property="Dictinstrumentid" column="DICTINSTRUMENTID" type="single" dbType="Real"/><result property="Instrumentcode" column="INSTRUMENTCODE" type="string" dbType="varchar"/><result property="Instrumentname" column="INSTRUMENTNAME" type="string" dbType="varchar"/><result property="Uniqueid" column="UNIQUEID" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictinstrumentcenter" parameterClass="string" resultMap="DictinstrumentcenterResult">SELECT DICTINSTRUMENTID AS Dictinstrumentid,INSTRUMENTCODE AS Instrumentcode,INSTRUMENTNAME AS Instrumentname,UNIQUEID AS UniqueidFROM DICTINSTRUMENTCENTER</select><insert id="InsertDictinstrumentcenter" parameterClass="Dictinstrumentcenter">	INSERT INTO DICTINSTRUMENTCENTER (DICTINSTRUMENTID,INSTRUMENTCODE,INSTRUMENTNAME,UNIQUEID) 	VALUES(#Dictinstrumentid#,#Instrumentcode#,#Instrumentname#,#Uniqueid#)</insert><update id="UpdateDictinstrumentcenter" parameterClass="Dictinstrumentcenter">UPDATE DICTINSTRUMENTCENTER  SET DICTINSTRUMENTID=#Dictinstrumentid#,INSTRUMENTCODE=#Instrumentcode#,INSTRUMENTNAME=#Instrumentname#,UNIQUEID=#Uniqueid#</update><delete id="DeleteDictinstrumentcenter" parameterClass="string">DELETE FROM DICTINSTRUMENTCENTER</delete>
+</statements>
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictqcruleMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictqcrule"  type="Daan.DataTransfer.Test.Domain.Dictqcrule" />
+</alias>
+<resultMaps>
+		<resultMap id="DictqcruleResult" class="Dictqcrule"><result property="Dictqcruleid" column="DICTQCRULEID" type="single" dbType="Real"/><result property="Rulename" column="RULENAME" type="string" dbType="varchar"/><result property="Ruleremark" column="RULEREMARK" type="string" dbType="varchar"/><result property="Active" column="ACTIVE" type="string" dbType="varchar"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictqcrule" parameterClass="string" resultMap="DictqcruleResult">SELECT DICTQCRULEID AS Dictqcruleid,RULENAME AS Rulename,RULEREMARK AS Ruleremark,ACTIVE AS ActiveFROM DICTQCRULE<dynamic prepend="WHERE"><isParameterPresent>DICTQCRULEID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictqcrule" parameterClass="Dictqcrule">	INSERT INTO DICTQCRULE (DICTQCRULEID,RULENAME,RULEREMARK,ACTIVE) 	VALUES(#Dictqcruleid#,#Rulename#,#Ruleremark#,#Active#)</insert><update id="UpdateDictqcrule" parameterClass="Dictqcrule">UPDATE DICTQCRULE  SET DICTQCRULEID=#Dictqcruleid#,RULENAME=#Rulename#,RULEREMARK=#Ruleremark#,ACTIVE=#Active#WHERE DICTQCRULEID = #Dictqcruleid#</update><delete id="DeleteDictqcrule" parameterClass="string">DELETE FROM DICTQCRULEWHERE DICTQCRULEID = #value#</delete>
+</statements>
+</sqlMap>

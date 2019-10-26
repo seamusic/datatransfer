@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DictrouteassignMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+<alias>
+	<typeAlias alias="Dictrouteassign"  type="Daan.DataTransfer.Test.Domain.Dictrouteassign" />
+</alias>
+<resultMaps>
+		<resultMap id="DictrouteassignResult" class="Dictrouteassign"><result property="Dictrouteassignid" column="DICTROUTEASSIGNID" type="single" dbType="Real"/><result property="Dictuserid" column="DICTUSERID" type="single" dbType="Real"/><result property="Dictrouteid" column="DICTROUTEID" type="single" dbType="Real"/></resultMap>
+</resultMaps>
+<statements>
+	<select id="SelectDictrouteassign" parameterClass="string" resultMap="DictrouteassignResult">SELECT DICTROUTEASSIGNID AS Dictrouteassignid,DICTUSERID AS Dictuserid,DICTROUTEID AS DictrouteidFROM DICTROUTEASSIGN<dynamic prepend="WHERE"><isParameterPresent>DICTROUTEASSIGNID = #value#</isParameterPresent></dynamic></select><insert id="InsertDictrouteassign" parameterClass="Dictrouteassign">	INSERT INTO DICTROUTEASSIGN (DICTROUTEASSIGNID,DICTUSERID,DICTROUTEID) 	VALUES(#Dictrouteassignid#,#Dictuserid#,#Dictrouteid#)</insert><update id="UpdateDictrouteassign" parameterClass="Dictrouteassign">UPDATE DICTROUTEASSIGN  SET DICTROUTEASSIGNID=#Dictrouteassignid#,DICTUSERID=#Dictuserid#,DICTROUTEID=#Dictrouteid#WHERE DICTROUTEASSIGNID = #Dictrouteassignid#</update><delete id="DeleteDictrouteassign" parameterClass="string">DELETE FROM DICTROUTEASSIGNWHERE DICTROUTEASSIGNID = #value#</delete>
+</statements>
+</sqlMap>
